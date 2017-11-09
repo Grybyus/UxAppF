@@ -17,6 +17,7 @@
     </android.support.v7.widget.Toolbar>
 
     <ListView
+        android:background="#423752"
         android:id="@+id/lvRecetas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,3 +30,4 @@
     </ListView>
 
 </RelativeLayout>
+
