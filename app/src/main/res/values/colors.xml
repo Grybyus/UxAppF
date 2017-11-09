@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!-- Colores de la aplicacion -->
+    <color name="black">#000000</color>
+    <color name="green">#ccffcc</color>
+    <color name="light_blue">#ccffff</color>
+    <color name="white">#ffffff</color>
+    <color name="yellow">#ffff80</color>
+</resources>
