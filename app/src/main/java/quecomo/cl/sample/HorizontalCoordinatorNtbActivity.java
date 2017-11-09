@@ -140,7 +140,6 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
         navigationTabBar.setModels(models);
         navigationTabBar.setViewPager(viewPager, 2);
 
-        //IMPORTANT: ENABLE SCROLL BEHAVIOUR IN COORDINATOR LAYOUT
         navigationTabBar.setBehaviorEnabled(true);
 
         navigationTabBar.setOnTabBarSelectedIndexListener(new NavigationTabBar.OnTabBarSelectedIndexListener() {
