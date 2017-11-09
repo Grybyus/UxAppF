@@ -17,12 +17,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import quecomo.cl.library.ntb.NavigationTabBar;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
@@ -47,6 +49,20 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
 
 
         initUI();
+
+        ArrayList<Ingrediente> ingredientes= new ArrayList<Ingrediente>();
+        Ingrediente ing1 = new Ingrediente(1,"Leche", "milk");
+        Ingrediente ing2 = new Ingrediente(2,"Café", "coffee");
+        Ingrediente ing3 = new Ingrediente(3,"Pan", "bread");
+        Ingrediente ing4 = new Ingrediente(4,"zanahoria", "carrot");
+        Ingrediente ing5 = new Ingrediente(4,"manzana", "apple");
+        Ingrediente ing6 = new Ingrediente(4,"lechuga", "letuce");
+        ingredientes.add(ing1);
+        ingredientes.add(ing2);
+        ingredientes.add(ing3);
+        ingredientes.add(ing4);
+        ingredientes.add(ing5);
+        ingredientes.add(ing6);
     }
 
     private void initUI()
@@ -238,22 +254,24 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
 
         public class ViewHolder extends RecyclerView.ViewHolder {
 
-            public TextView txt;
+            public ImageView txt;
 
             public ViewHolder(final View itemView) {
                 super(itemView);
-                txt = (TextView) itemView.findViewById(R.id.txt_vp_item_list);
-                final TextView elemento2DeLaFila = (TextView) itemView.findViewById(R.id.txt_vp_item_list1);
-                final TextView elemento3DeLaFila = (TextView) itemView.findViewById(R.id.txt_vp_item_list2);
+                txt = (ImageView) itemView.findViewById(R.id.txt_vp_item_list);
+                final ImageView elemento2DeLaFila = (ImageView) itemView.findViewById(R.id.txt_vp_item_list1);
+                final ImageView elemento3DeLaFila = (ImageView) itemView.findViewById(R.id.txt_vp_item_list2);
                 txt.setId(idGlobal);;
-                elemento2DeLaFila.setId(idGlobal+1);;
-                elemento3DeLaFila.setId(idGlobal+2);;
+                elemento2DeLaFila.setId(idGlobal+1);
+                elemento3DeLaFila.setId(idGlobal+2);
+
                 txt.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v)
                 {
                     TextView editable = (TextView) findViewById(R.id.backdrop);
                     String mayo =  txt.getId() + "";
+
                     editable.setText(mayo);
                 }
             });

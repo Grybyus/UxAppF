@@ -2,7 +2,9 @@
     android:id="@+id/linear"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:background="#423752">
+    android:background="@color/light_blue"
+    android:textColor="@color/black"
+    >
     <ImageView
         android:id="@+id/imagenreceta"
         android:layout_width="100dp"
@@ -11,7 +13,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:textColor="@color/black">
 
 
         <LinearLayout
@@ -24,12 +27,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nombre: "
-                android:textColor="#9b92b3"/>
+                android:textColor="@color/black"/>
             <TextView
                 android:id="@+id/nombrereceta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#9b92b3"/>
+                android:textColor="@color/black"/>
 
         </LinearLayout>
 
@@ -43,13 +46,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Descripcion: "
-                android:textColor="#9b92b3"/>
+                android:textColor="#888888"/>
             <TextView
                 android:id="@+id/descripcionreceta"
                 android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#9b92b3"/>
+                android:textColor="@color/black"/>
 
         </LinearLayout>
 

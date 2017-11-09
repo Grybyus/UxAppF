@@ -11,13 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay"
-        android:background="#605271"
+        android:background="@color/green"
         app:title="@string/app_name"
         >
     </android.support.v7.widget.Toolbar>
 
     <ListView
-        android:background="#423752"
+        android:background="@color/light_blue"
         android:id="@+id/lvRecetas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

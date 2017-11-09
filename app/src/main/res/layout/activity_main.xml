@@ -5,14 +5,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:weightSum="5"
-    android:background="#423752">
+    android:background="@color/light_blue">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay"
-        android:background="#605271"
+        android:background="@color/green"
         app:title="@string/app_name"
         >
 
@@ -28,7 +28,7 @@
         android:textSize="30sp"
         android:textStyle="bold"
         android:gravity="center"
-        android:textColor="#9b92b3"/>
+        android:textColor="@color/black"/>
 
     <android.support.v7.widget.SearchView
         android:id="@+id/buscar_ini"
@@ -46,7 +46,8 @@
         android:layout_weight="1"
         android:gravity="center"
         android:text="Ver lista de ingredientes"
-        android:textColor="#000000"
+        android:textColor="@color/black"
+        android:background="@color/green"
         android:textColorLink="#FFFFFF"/>
 
 </LinearLayout>

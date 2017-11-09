@@ -4,15 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#423752">
+    android:background="@color/light_blue">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay"
-        android:background="#605271"
+        android:background="@color/green"
         app:title="@string/app_name"
+
         >
 
 
@@ -36,12 +37,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nombre: "
-            android:textColor="#9b92b3"/>
+            android:textColor="@color/black"/>
         <TextView
             android:id="@+id/nombrereceta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#9b92b3"/>
+            android:textColor="@color/black"/>
     </LinearLayout>
 
     <LinearLayout
@@ -54,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Descripción: "
-            android:textColor="#9b92b3"/>
+            android:textColor="@color/black"/>
         <TextView
             android:id="@+id/descripcionreceta"
             android:layout_width="wrap_content"
@@ -75,12 +76,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ingredientes: "
-                android:textColor="#9b92b3"/>
+                android:textColor="@color/black"/>
             <ListView
                 android:id="@+id/ingredientesreceta"
                 android:layout_width="150dp"
                 android:layout_height="200dp"
-                android:textColor="#9b92b3"/>
+                android:textColor="@color/black"/>
         </LinearLayout>
         <LinearLayout
             android:layout_marginLeft="10dp"
@@ -91,12 +92,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Pasos: "
-            android:textColor="#9b92b3"/>
+            android:textColor="@color/black"/>
         <ListView
             android:id="@+id/pasosreceta"
             android:layout_width="wrap_content"
             android:layout_height="200dp"
-            android:textColor="#9b92b3"/>
+            android:textColor="@color/black"/>
         </LinearLayout>
     </LinearLayout>
 

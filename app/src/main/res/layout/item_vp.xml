@@ -3,6 +3,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
+              android:background="@color/green"
               android:weightSum="4">
 
     <TextView
@@ -10,10 +11,10 @@
         android:layout_height="0dp"
         android:layout_margin="10dp"
         android:layout_weight="1"
-        android:background="@drawable/bg_round_rect"
+        android:background="@color/light_blue"
         android:gravity="center"
         android:text="Navigation"
-        android:textColor="#9b92b3"
+        android:textColor="@color/black"
         android:textStyle="bold"/>
 
     <TextView
@@ -24,10 +25,10 @@
         android:layout_marginRight="10dp"
         android:layout_marginStart="10dp"
         android:layout_weight="1"
-        android:background="@drawable/bg_round_rect"
+        android:background="@color/light_blue"
         android:gravity="center"
         android:text="Tab"
-        android:textColor="#9b92b3"
+        android:textColor="@color/black"
         android:textStyle="bold"/>
 
     <TextView
@@ -39,10 +40,10 @@
         android:layout_marginRight="10dp"
         android:layout_marginStart="10dp"
         android:layout_weight="1"
-        android:background="@drawable/bg_round_rect"
+        android:background="@color/light_blue"
         android:gravity="center"
         android:text="Bar"
-        android:textColor="#9b92b3"
+        android:textColor="@color/black"
         android:textStyle="bold"/>
 
     <TextView
@@ -51,10 +52,10 @@
         android:layout_height="0dp"
         android:layout_margin="10dp"
         android:layout_weight="1"
-        android:background="@drawable/bg_round_rect"
+        android:background="@color/light_blue"
         android:gravity="center"
         android:text="Page"
-        android:textColor="#9b92b3"
+        android:textColor="@color/black"
         android:textStyle="bold"/>
 
 </LinearLayout>

@@ -88,10 +88,10 @@ public class NavigationTabBar extends View implements ViewPager.OnPageChangeList
     protected final static int DEFAULT_ANIMATION_DURATION = 300;
     protected final static float DEFAULT_ICON_SIZE_FRACTION = 0.5F;
     protected final static float DEFAULT_TITLE_ICON_SIZE_FRACTION = 0.5F;
+    protected final static int DEFAULT_INACTIVE_COLOR = Color.parseColor("#996633");
+    protected final static int DEFAULT_ACTIVE_COLOR = Color.parseColor("#000000");
+    protected final static int DEFAULT_BG_COLOR = Color.parseColor("#ccffcc");
 
-    protected final static int DEFAULT_INACTIVE_COLOR = Color.parseColor("#9f90af");
-    protected final static int DEFAULT_ACTIVE_COLOR = Color.WHITE;
-    protected final static int DEFAULT_BG_COLOR = Color.parseColor("#605271");
 
     protected final static float MIN_FRACTION = 0.0F;
     protected final static float MAX_FRACTION = 1.0F;
@@ -188,7 +188,7 @@ public class NavigationTabBar extends View implements ViewPager.OnPageChangeList
     // Paint for model title
     protected final Paint mModelTitlePaint = new TextPaint(FLAGS) {
         {
-            setColor(Color.WHITE);
+            setColor(Color.BLACK);
             setTextAlign(Align.CENTER);
         }
     };
@@ -243,8 +243,8 @@ public class NavigationTabBar extends View implements ViewPager.OnPageChangeList
     // Model badge bg and title color.
     // By default badge bg color is the active model color and badge title color is the model bg color
     // To reset colors just set bg and title color to AUTO_COLOR
-    protected int mBadgeTitleColor = AUTO_COLOR;
-    protected int mBadgeBgColor = AUTO_COLOR;
+    protected int mBadgeTitleColor = Color.parseColor("#000000");
+    protected int mBadgeBgColor = Color.parseColor("#605271");
 
     // Indexes
     protected int mLastIndex = INVALID_INDEX;
@@ -348,11 +348,11 @@ public class NavigationTabBar extends View implements ViewPager.OnPageChangeList
                     )
             );
             setBadgeBgColor(
-                    typedArray.getColor(R.styleable.NavigationTabBar_ntb_badge_bg_color, AUTO_COLOR)
+                    typedArray.getColor(R.styleable.NavigationTabBar_ntb_badge_bg_color, Color.parseColor("#605271"))
             );
             setBadgeTitleColor(
                     typedArray.getColor(
-                            R.styleable.NavigationTabBar_ntb_badge_title_color, AUTO_COLOR
+                            R.styleable.NavigationTabBar_ntb_badge_title_color, Color.parseColor("#000000")
                     )
             );
 
