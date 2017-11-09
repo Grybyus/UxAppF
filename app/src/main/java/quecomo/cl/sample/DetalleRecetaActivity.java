@@ -1,13 +1,19 @@
 package quecomo.cl.sample;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class DetalleRecetaActivity extends AppCompatActivity {
     private Toolbar toolbar;
@@ -28,13 +34,24 @@ public class DetalleRecetaActivity extends AppCompatActivity {
         String nombreReceta = extras.getString("nombre");
         String descripcionReceta = extras.getString("descripcion");
         String nombreImagen = extras.getString("imagen");
-
+        ArrayList<String> ingredientesReceta = extras.getStringArrayList("ingredientes");
+        ArrayList<String> pasosReceta = extras.getStringArrayList("pasos");
         TextView nombre = (TextView) findViewById(R.id.nombrereceta);
         nombre.setText(nombreReceta);
         TextView descripcion = (TextView) findViewById(R.id.descripcionreceta);
         descripcion.setText(descripcionReceta);
-        TextView imagen = (TextView) findViewById(R.id.imagenreceta);
-        imagen.setText(nombreImagen);
+        ImageView imagen = (ImageView) findViewById(R.id.imagenreceta);
+        int resId = this.getResources().getIdentifier(nombreImagen,"drawable",this.getPackageName());
+        imagen.setImageResource(resId);
+
+        ListView listaIngredientes = (ListView) findViewById(R.id.ingredientesreceta);
+        ArrayAdapter adapterIngredientes = new ArrayAdapter<String>(this,android.R.layout.test_list_item,ingredientesReceta);
+        listaIngredientes.setAdapter(adapterIngredientes);
+
+        ListView listaPasos = (ListView) findViewById(R.id.pasosreceta);
+        ArrayAdapter adapterPasos = new ArrayAdapter<String>(this,android.R.layout.test_list_item,pasosReceta);
+        listaPasos.setAdapter(adapterPasos);
+
     }
 
     @Override

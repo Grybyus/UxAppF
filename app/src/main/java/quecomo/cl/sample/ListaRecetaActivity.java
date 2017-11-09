@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ListaRecetaActivity extends AppCompatActivity {
     private Toolbar toolbar;
@@ -25,14 +26,14 @@ public class ListaRecetaActivity extends AppCompatActivity {
         toolbar.setNavigationIcon(R.drawable.chef_home);
 
         ArrayList<Receta> recetaArrayList = new ArrayList<Receta>();
-        Receta receta1 = new Receta(1,"Ensalada de Lechuga", "Una exquisita ensalada con ingredientes", "abrazo");
-        Receta receta2 = new Receta(2,"Panqueques con manjar", "Esta receta es muy facil de hacer y se hace facil", "abrazo");
-        Receta receta3 = new Receta(3,"Cazuela de pollo", "Se hace con pollo primero se calienta el agua", "abrazo");
-        Receta receta4 = new Receta(4,"Lasagna", "Se calienta la comida en el microondas y se sirve", "abrazo");
-        Receta receta5 = new Receta(4,"Ramen", "Se calienta el agua se le echa y se sirve", "abrazo");
-        Receta receta6 = new Receta(4,"Zapallo italiano relleno", "Se toma el zapallo y despues se hace", "abrazo");
-        Receta receta7 = new Receta(4,"Tallarines con salsa", "Se preparan los tallarines y la salsa", "abrazo");
-        Receta receta8 = new Receta(4,"Zanahoria pelada", "Se pela la zanahoria", "abrazo");
+        Receta receta1 = new Receta(1,"Ensalada de Lechuga", "Una exquisita ensalada con ingredientes", "abrazo",new ArrayList<>(Arrays.asList("Lechuga", "Aceite","Sal","Limón")),new ArrayList<>(Arrays.asList("Lavar la lechuga", "Cortar la lechuga","Volver a lavar la lechuga","Poner lechuga picada en el recipiente","Poner una cucharada de aceite","Poner media cucharada de sal","Exprimir medio limón sobre la lechuga","Servir")));
+        Receta receta2 = new Receta(2,"Panqueques con manjar", "Esta receta es muy facil de hacer y se hace facil", "abrazo",new ArrayList<>(Arrays.asList("xyz", "abc")),new ArrayList<>(Arrays.asList("xyz", "abc")));
+        Receta receta3 = new Receta(3,"Cazuela de pollo", "Se hace con pollo primero se calienta el agua", "abrazo",new ArrayList<>(Arrays.asList("xyz", "abc")),new ArrayList<>(Arrays.asList("xyz", "abc")));
+        Receta receta4 = new Receta(4,"Lasagna", "Se calienta la comida en el microondas y se sirve", "abrazo",new ArrayList<>(Arrays.asList("xyz", "abc")),new ArrayList<>(Arrays.asList("xyz", "abc")));
+        Receta receta5 = new Receta(4,"Ramen", "Se calienta el agua se le echa y se sirve", "abrazo",new ArrayList<>(Arrays.asList("xyz", "abc")),new ArrayList<>(Arrays.asList("xyz", "abc")));
+        Receta receta6 = new Receta(4,"Zapallo italiano relleno", "Se toma el zapallo y despues se hace", "abrazo",new ArrayList<>(Arrays.asList("xyz", "abc")),new ArrayList<>(Arrays.asList("xyz", "abc")));
+        Receta receta7 = new Receta(4,"Tallarines con salsa", "Se preparan los tallarines y la salsa", "abrazo",new ArrayList<>(Arrays.asList("xyz", "abc")),new ArrayList<>(Arrays.asList("xyz", "abc")));
+        Receta receta8 = new Receta(4,"Zanahoria pelada", "Se pela la zanahoria", "abrazo",new ArrayList<>(Arrays.asList("xyz", "abc")),new ArrayList<>(Arrays.asList("xyz", "abc")));
         recetaArrayList.add(receta1);
         recetaArrayList.add(receta2);
         recetaArrayList.add(receta3);

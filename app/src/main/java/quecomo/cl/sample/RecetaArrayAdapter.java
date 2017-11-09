@@ -47,6 +47,8 @@ public class RecetaArrayAdapter extends ArrayAdapter<Receta>
                 extras.putString("nombre",receta.getNombre());
                 extras.putString("imagen",receta.getNombreImagen());
                 extras.putString("descripcion",receta.getDescripcion());
+                extras.putStringArrayList("ingredientes",receta.getIngredientes());
+                extras.putStringArrayList("pasos",receta.getPasos());
                 intentDetalle.putExtras(extras);
                 v.getContext().startActivity(intentDetalle);
             }
