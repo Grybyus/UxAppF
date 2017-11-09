@@ -183,7 +183,7 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.salir:
-                Toast.makeText(this,"Has pulsado en salir",Toast.LENGTH_SHORT).show(); //ACA SE CAMBIA LO QUE HACE EL BOTON BORRAR
+                Toast.makeText(this,"Has pulsado en salir",Toast.LENGTH_SHORT).show(); //ACA SE CAMBIA LO QUE HACE EL BOTON SALIR
                 //finish();
                 //System.exit(0);
                 Intent intent = new Intent(Intent.ACTION_MAIN);
@@ -192,7 +192,7 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.editar:
-                Toast.makeText(this,"Has pulsado en editar",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Disculpe, estamos trabajando para usted",Toast.LENGTH_SHORT).show();
                 break;
             case android.R.id.home:
                 Toast.makeText(this,"Iniciemos otra búsqueda",Toast.LENGTH_SHORT).show();
