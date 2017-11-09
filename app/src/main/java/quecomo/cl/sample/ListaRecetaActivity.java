@@ -24,17 +24,25 @@ public class ListaRecetaActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationIcon(R.drawable.chef_home);
 
-        ArrayList<Receta> arrayOfUsers = new ArrayList<Receta>();
-        Receta receta1 = new Receta(1,"Ensalada de Lechuga", "Una exquisita...", "abrazo");
-        Receta receta2 = new Receta(2,"Adolfito", "Falto el abrazo de hoy", "abrazo");
-        Receta receta3 = new Receta(3,"Deivid", "De carton deivid", "abrazo");
-        Receta receta4 = new Receta(4,"Moniquita", "God Tier Waifu <3", "abrazo");
-        arrayOfUsers.add(receta1);
-        arrayOfUsers.add(receta2);
-        arrayOfUsers.add(receta3);
-        arrayOfUsers.add(receta4);
-        RecetaArrayAdapter adapter = new RecetaArrayAdapter(this, arrayOfUsers);
-        ListView listView = (ListView) findViewById(R.id.lvUsers);
+        ArrayList<Receta> recetaArrayList = new ArrayList<Receta>();
+        Receta receta1 = new Receta(1,"Ensalada de Lechuga", "Una exquisita ensalada con ingredientes", "abrazo");
+        Receta receta2 = new Receta(2,"Panqueques con manjar", "Esta receta es muy facil de hacer y se hace facil", "abrazo");
+        Receta receta3 = new Receta(3,"Cazuela de pollo", "Se hace con pollo primero se calienta el agua", "abrazo");
+        Receta receta4 = new Receta(4,"Lasagna", "Se calienta la comida en el microondas y se sirve", "abrazo");
+        Receta receta5 = new Receta(4,"Ramen", "Se calienta el agua se le echa y se sirve", "abrazo");
+        Receta receta6 = new Receta(4,"Zapallo italiano relleno", "Se toma el zapallo y despues se hace", "abrazo");
+        Receta receta7 = new Receta(4,"Tallarines con salsa", "Se preparan los tallarines y la salsa", "abrazo");
+        Receta receta8 = new Receta(4,"Zanahoria pelada", "Se pela la zanahoria", "abrazo");
+        recetaArrayList.add(receta1);
+        recetaArrayList.add(receta2);
+        recetaArrayList.add(receta3);
+        recetaArrayList.add(receta4);
+        recetaArrayList.add(receta5);
+        recetaArrayList.add(receta6);
+        recetaArrayList.add(receta7);
+        recetaArrayList.add(receta8);
+        RecetaArrayAdapter adapter = new RecetaArrayAdapter(this, recetaArrayList);
+        ListView listView = (ListView) findViewById(R.id.lvRecetas);
         listView.setAdapter(adapter);
 
     }

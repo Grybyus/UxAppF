@@ -2,6 +2,7 @@ package quecomo.cl.sample;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 
 import java.util.ArrayList;
 
@@ -28,18 +30,25 @@ public class RecetaArrayAdapter extends ArrayAdapter<Receta>
         ImageView imagenReceta = (ImageView) convertView.findViewById(R.id.imagenreceta);
         TextView nombreReceta = (TextView) convertView.findViewById(R.id.nombrereceta);
         TextView descripcionReceta = (TextView) convertView.findViewById(R.id.descripcionreceta);
+
         int id = getContext().getResources().getIdentifier(receta.getNombreImagen(), "drawable", getContext().getPackageName());
+
         imagenReceta.setImageDrawable(getContext().getResources().getDrawable(id));
         nombreReceta.setText(receta.getNombre());
         descripcionReceta.setText(receta.getDescripcion());
         LinearLayout layout = (LinearLayout)  convertView.findViewById(R.id.linear);
+
         layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
-                Intent newIntent = new Intent(v.getContext(), DetalleRecetaActivity.class);
-                newIntent.putExtra("id", receta.getId() + "");
-                v.getContext().startActivity(newIntent);
+                Intent intentDetalle = new Intent(v.getContext(), DetalleRecetaActivity.class);
+                Bundle extras = new Bundle();
+                extras.putString("nombre",receta.getNombre());
+                extras.putString("imagen",receta.getNombreImagen());
+                extras.putString("descripcion",receta.getDescripcion());
+                intentDetalle.putExtras(extras);
+                v.getContext().startActivity(intentDetalle);
             }
         });
         return convertView;

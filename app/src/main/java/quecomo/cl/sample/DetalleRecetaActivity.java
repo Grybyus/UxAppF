@@ -22,9 +22,19 @@ public class DetalleRecetaActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationIcon(R.drawable.chef_home);
 
-        String stringObtenido = getIntent().getStringExtra("id");
-        TextView nombre = (TextView) findViewById(R.id.nombrerecetadetalle);
-        nombre.setText(stringObtenido);
+        Intent intentDetalle = getIntent();
+        Bundle extras = intentDetalle.getExtras();
+
+        String nombreReceta = extras.getString("nombre");
+        String descripcionReceta = extras.getString("descripcion");
+        String nombreImagen = extras.getString("imagen");
+
+        TextView nombre = (TextView) findViewById(R.id.nombrereceta);
+        nombre.setText(nombreReceta);
+        TextView descripcion = (TextView) findViewById(R.id.descripcionreceta);
+        descripcion.setText(descripcionReceta);
+        TextView imagen = (TextView) findViewById(R.id.imagenreceta);
+        imagen.setText(nombreImagen);
     }
 
     @Override
