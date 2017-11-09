@@ -10,17 +10,22 @@
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        android:theme="@style/AppTheme"
+        android:screenOrientation="portrait">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HorizontalCoordinatorNtbActivity" />
-        <activity android:name=".DetalleRecetaActivity"></activity>
-        <activity android:name=".ListaRecetaActivity"></activity>
+        <activity android:name=".HorizontalCoordinatorNtbActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".DetalleRecetaActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ListaRecetaActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
