@@ -28,7 +28,8 @@ public class RecetaArrayAdapter extends ArrayAdapter<Receta>
         ImageView imagenReceta = (ImageView) convertView.findViewById(R.id.imagenreceta);
         TextView nombreReceta = (TextView) convertView.findViewById(R.id.nombrereceta);
         TextView descripcionReceta = (TextView) convertView.findViewById(R.id.descripcionreceta);
-        imagenReceta.setImageResource(R.drawable.abrazo);
+        int id = getContext().getResources().getIdentifier(receta.getNombreImagen(), "drawable", getContext().getPackageName());
+        imagenReceta.setImageDrawable(getContext().getResources().getDrawable(id));
         nombreReceta.setText(receta.getNombre());
         descripcionReceta.setText(receta.getDescripcion());
         LinearLayout layout = (LinearLayout)  convertView.findViewById(R.id.linear);
