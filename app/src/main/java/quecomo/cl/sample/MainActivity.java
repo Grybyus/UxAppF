@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 System.exit(0);
                 break;
             case R.id.editar:
-                Toast.makeText(this,"Has pulsado en editar",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Disculpe, estamos trabajando para usted",Toast.LENGTH_SHORT).show();
                 break;
             case android.R.id.home:
                 Toast.makeText(this,"¿Qué vamos a cocinar hoy!?",Toast.LENGTH_SHORT).show();

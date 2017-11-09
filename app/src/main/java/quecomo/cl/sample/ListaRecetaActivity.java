@@ -91,7 +91,7 @@ public class ListaRecetaActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.editar:
-                Toast.makeText(this,"Has pulsado en editar",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Disculpe, estamos trabajando para usted",Toast.LENGTH_SHORT).show();
                 break;
             case android.R.id.home:
                 Toast.makeText(this,"Iniciemos otra búsqueda",Toast.LENGTH_SHORT).show();
