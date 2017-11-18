@@ -4,9 +4,9 @@ android {
     compileSdkVersion 25
     buildToolsVersion '26.0.2'
 
-    defaultConfig {
+        defaultConfig {
         applicationId "devlight.io.navigationtabbar"
-        minSdkVersion 11
+        minSdkVersion 14
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
