@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.PagerAdapter;
@@ -59,69 +62,124 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
             }
         });
 
-        Ingrediente vegetal1 = new Ingrediente(1,"Brocoli", "milk");
-        Ingrediente vegetal2 = new Ingrediente(2,"Lechuga", "milk");
-        Ingrediente vegetal3 = new Ingrediente(3,"Apio", "milk");
-        Ingrediente vegetal4 = new Ingrediente(4,"Repollo", "milk");
-        Ingrediente vegetal5 = new Ingrediente(5,"Pimenton", "milk");
-        Ingrediente vegetal6 = new Ingrediente(6,"Zanahoria", "milk");
 
-        Ingrediente fruta1 = new Ingrediente(7,"Manzana", "milk");
-        Ingrediente fruta2 = new Ingrediente(8,"Tomate", "milk");
-        Ingrediente fruta3 = new Ingrediente(9,"Platanito", "milk");
-        Ingrediente fruta4 = new Ingrediente(10,"Durazno", "milk");
-        Ingrediente fruta5 = new Ingrediente(11,"Pera", "milk");
-        Ingrediente fruta6 = new Ingrediente(12,"Kiwi", "milk");
+        Ingrediente ing1 = new Ingrediente(1,"Leche", "milk",  4);
+        Ingrediente ing2 = new Ingrediente(2,"Café", "coffee",  5);
+        Ingrediente ing3 = new Ingrediente(3,"Pan", "bread", 5);
+        Ingrediente ing4 = new Ingrediente(4,"zanahoria", "carrot", 2);
+        Ingrediente ing5 = new Ingrediente(5,"manzana", "apple", 1);
+        Ingrediente ing6 = new Ingrediente(6,"lechuga", "letuce", 2);
+        Ingrediente ing7 = new Ingrediente(7,"papa", "potatoes", 2);
+        Ingrediente ing8 = new Ingrediente(8,"zapallo", "pumpkin", 2);
+        Ingrediente ing9 = new Ingrediente(9,"piña", "pineapple", 1);
+        Ingrediente ing10 = new Ingrediente(10,"palta", "avocado", 1);
+        Ingrediente ing11 = new Ingrediente(11,"pera", "pear", 1);
+        Ingrediente ing12 = new Ingrediente(12,"durazno", "peach", 1);
+        Ingrediente ing13 = new Ingrediente(13,"cereza", "cherry", 1);
+        Ingrediente ing14 = new Ingrediente(14,"azucar", "sugar", 5);
+        Ingrediente ing15 = new Ingrediente(15,"maiz", "corn", 1);
+        Ingrediente ing16 = new Ingrediente(16,"pepino", "cucumber", 2);
+        Ingrediente ing17 = new Ingrediente(17,"ají", "chili", 2);
+        Ingrediente ing18 = new Ingrediente(18,"sandía", "watermelon", 2);
+        Ingrediente ing19 = new Ingrediente(19,"queso", "cheese", 4);
+        Ingrediente ing20 = new Ingrediente(20,"camarón", "shrimp", 3);
+        Ingrediente ing21 = new Ingrediente(21,"naranja", "orange", 1);
+        Ingrediente ing22 = new Ingrediente(22,"maní", "peanut", 1);
+        Ingrediente ing23 = new Ingrediente(23,"uvas", "grapes", 1);
+        Ingrediente ing24 = new Ingrediente(24,"berenjena", "eggplant",2);
+        Ingrediente ing25 = new Ingrediente(25,"tocino", "bacon", 3);
+        Ingrediente ing26 = new Ingrediente(26,"huevo", "egg", 3);
+        Ingrediente ing27 = new Ingrediente(27,"limón", "lemon",1);
+        Ingrediente ing28 = new Ingrediente(28,"tomate", "tomato", 1);
+        Ingrediente ing29 = new Ingrediente(29,"banana", "banana", 1);
+        Ingrediente ing30 = new Ingrediente(30,"fresa", "strawberry", 1);
+        Ingrediente ing31 = new Ingrediente(31,"champiñon", "mushroom", 5);
+        Ingrediente ing32 = new Ingrediente(32,"levadura", "yeast", 5);
+        Ingrediente ing33 = new Ingrediente(33,"mantequilla", "butter", 4);
+        Ingrediente ing34 = new Ingrediente(34,"nutella", "nutela", 5);
+        Ingrediente ing35 = new Ingrediente(35,"aceite", "oil", 5);
+        Ingrediente ing36 = new Ingrediente(36,"nuez", "nut", 1);
+        Ingrediente ing37 = new Ingrediente(37,"harina", "flour", 5);
+        Ingrediente ing38 = new Ingrediente(38,"helado", "icecream", 4);
+        Ingrediente ing39 = new Ingrediente(39,"pollo", "chiken",3);
+        Ingrediente ing40 = new Ingrediente(40,"salchicha", "sausage", 3);
+        Ingrediente ing41 = new Ingrediente(41,"bistec", "steak", 3);
+        Ingrediente ing42 = new Ingrediente(42,"pescado", "fish", 3);
+        Ingrediente ing43 = new Ingrediente(43,"salami", "salami", 3);
+        Ingrediente ing44 = new Ingrediente(44,"ajo", "garlic", 2);
+        Ingrediente ing45 = new Ingrediente(45,"cebollin", "onionin", 2);
+        Ingrediente ing46 = new Ingrediente(46,"cebolla", "onion", 2);
+        Ingrediente ing47 = new Ingrediente(47,"brócoli", "broccoli", 2);
 
-        Ingrediente carne1 = new Ingrediente(13,"Pollo", "milk");
-        Ingrediente carne2 = new Ingrediente(14,"Vaquita", "milk");
-        Ingrediente carne3 = new Ingrediente(15,"Pollo Ganso", "milk");
-        Ingrediente carne4 = new Ingrediente(16,"Paleta", "milk");
-        Ingrediente carne5 = new Ingrediente(17,"Guaren", "milk");
-        Ingrediente carne6 = new Ingrediente(18,"Perro", "milk");
 
-        Ingrediente lacteo1 = new Ingrediente(19,"Leche", "milk");
-        Ingrediente lacteo2 = new Ingrediente(20,"Queso", "milk");
-        Ingrediente lacteo3 = new Ingrediente(21,"Yogurt1", "milk");
-        Ingrediente lacteo4 = new Ingrediente(22,"Yogurt2", "milk");
-        Ingrediente lacteo5 = new Ingrediente(23,"Yogurt3", "milk");
-        Ingrediente lacteo6 = new Ingrediente(24,"Yogurt4", "milk");
+
 
         ArrayList<Ingrediente> listaDeVegetales = new ArrayList<Ingrediente>();
-        listaDeVegetales.add(vegetal1);
-        listaDeVegetales.add(vegetal2);
-        listaDeVegetales.add(vegetal3);
-        listaDeVegetales.add(vegetal4);
-        listaDeVegetales.add(vegetal5);
-        listaDeVegetales.add(vegetal6);
+        listaDeVegetales.add(ing4);
+        listaDeVegetales.add(ing6);
+        listaDeVegetales.add(ing7);
+        listaDeVegetales.add(ing8);
+        listaDeVegetales.add(ing16);
+        listaDeVegetales.add(ing17);
+        listaDeVegetales.add(ing18);
+        listaDeVegetales.add(ing24);
+        listaDeVegetales.add(ing44);
+        listaDeVegetales.add(ing45);
+        listaDeVegetales.add(ing46);
+        listaDeVegetales.add(ing47);
+
         ListaIngredientes objetoListaDeVerduras = new ListaIngredientes(listaDeVegetales);
 
         ArrayList<Ingrediente> listaDeFrutas = new ArrayList<Ingrediente>();
-        listaDeFrutas.add(fruta1);
-        listaDeFrutas.add(fruta2);
-        listaDeFrutas.add(fruta3);
-        listaDeFrutas.add(fruta4);
-        listaDeFrutas.add(fruta5);
-        listaDeFrutas.add(fruta6);
+        listaDeFrutas.add(ing5);
+        listaDeFrutas.add(ing9);
+        listaDeFrutas.add(ing10);
+        listaDeFrutas.add(ing11);
+        listaDeFrutas.add(ing12);
+        listaDeFrutas.add(ing13);
+        listaDeFrutas.add(ing15);
+        listaDeFrutas.add(ing21);
+        listaDeFrutas.add(ing22);
+        listaDeFrutas.add(ing23);
+        listaDeFrutas.add(ing27);
+        listaDeFrutas.add(ing28);
+        listaDeFrutas.add(ing29);
+        listaDeFrutas.add(ing30);
+        listaDeFrutas.add(ing36);
+
+
         ListaIngredientes objetoListaDeFrutas = new ListaIngredientes(listaDeFrutas);
 
         final ArrayList<Ingrediente> listaDeCarnes = new ArrayList<Ingrediente>();
-        listaDeCarnes.add(carne1);
-        listaDeCarnes.add(carne2);
-        listaDeCarnes.add(carne3);
-        listaDeCarnes.add(carne4);
-        listaDeCarnes.add(carne5);
-        listaDeCarnes.add(carne6);
+        listaDeCarnes.add(ing20);
+        listaDeCarnes.add(ing25);
+        listaDeCarnes.add(ing26);
+        listaDeCarnes.add(ing39);
+        listaDeCarnes.add(ing40);
+        listaDeCarnes.add(ing41);
+        listaDeCarnes.add(ing42);
+        listaDeCarnes.add(ing43);
         ListaIngredientes objetoListaDeCarnes = new ListaIngredientes(listaDeCarnes);
 
         ArrayList<Ingrediente> listaDeLacteos = new ArrayList<Ingrediente>();
-        listaDeLacteos.add(lacteo1);
-        listaDeLacteos.add(lacteo2);
-        listaDeLacteos.add(lacteo3);
-        listaDeLacteos.add(lacteo4);
-        listaDeLacteos.add(lacteo5);
-        listaDeLacteos.add(lacteo6);
+        listaDeLacteos.add(ing1);
+        listaDeLacteos.add(ing2);
+        listaDeLacteos.add(ing3);
+        listaDeLacteos.add(ing14);
+        listaDeLacteos.add(ing19);
+        listaDeLacteos.add(ing31);
+        listaDeLacteos.add(ing32);
+        listaDeLacteos.add(ing33);
+        listaDeLacteos.add(ing34);
+        listaDeLacteos.add(ing35);
+        listaDeLacteos.add(ing37);
+        listaDeLacteos.add(ing38);
+
         ListaIngredientes objetoListaDeLacteos = new ListaIngredientes(listaDeLacteos);
+
+
+
+
 
         listas = new ArrayList<ListaIngredientes>();
         listas.add(objetoListaDeFrutas);
@@ -131,6 +189,7 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
         initUI();
         Button botonFrutas = (Button) findViewById(R.id.botonFrutas);
         botonFrutas.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View v) {
                 TextView elemento1DeLaFila1 = (TextView) findViewById(R.id.txt_vp_item_list);
@@ -140,6 +199,21 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
                 TextView elemento2DeLaFila2 = (TextView) findViewById(R.id.txt_vp_item_list4);
                 TextView elemento3DeLaFila2 = (TextView) findViewById(R.id.txt_vp_item_list5);
                 elemento1DeLaFila1.setText(listas.get(0).getListaDeIngredientes().get(0).getNombre());
+
+                Drawable imagen1= getResources().getDrawable( R.drawable.apple );
+                Drawable imagen2= getResources().getDrawable( R.drawable.pineapple );
+                Drawable imagen3= getResources().getDrawable( R.drawable.avocado );
+                Drawable imagen4= getResources().getDrawable( R.drawable.pear );
+                Drawable imagen5= getResources().getDrawable( R.drawable.peach );
+                Drawable imagen6= getResources().getDrawable( R.drawable.cherry );
+
+                elemento1DeLaFila1.setBackground(imagen1);
+                elemento2DeLaFila1.setBackground(imagen2);
+                elemento3DeLaFila1.setBackground(imagen3);
+                elemento1DeLaFila2.setBackground(imagen4);
+                elemento2DeLaFila2.setBackground(imagen5);
+                elemento3DeLaFila2.setBackground(imagen6);
+
                 elemento2DeLaFila1.setText(listas.get(0).getListaDeIngredientes().get(1).getNombre());
                 elemento3DeLaFila1.setText(listas.get(0).getListaDeIngredientes().get(2).getNombre());
                 elemento1DeLaFila2.setText(listas.get(0).getListaDeIngredientes().get(3).getNombre());
@@ -150,6 +224,7 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
 
         Button botonVerduras = (Button) findViewById(R.id.botonVerduras);
         botonVerduras.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View v) {
                 TextView elemento1DeLaFila1 = (TextView) findViewById(R.id.txt_vp_item_list);
@@ -158,6 +233,22 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
                 TextView elemento1DeLaFila2 = (TextView) findViewById(R.id.txt_vp_item_list3);
                 TextView elemento2DeLaFila2 = (TextView) findViewById(R.id.txt_vp_item_list4);
                 TextView elemento3DeLaFila2 = (TextView) findViewById(R.id.txt_vp_item_list5);
+
+                Drawable imagen1= getResources().getDrawable( R.drawable.carrot );
+                Drawable imagen2= getResources().getDrawable( R.drawable.latuce );
+                Drawable imagen3= getResources().getDrawable( R.drawable.potatoes );
+                Drawable imagen4= getResources().getDrawable( R.drawable.pumpkin );
+                Drawable imagen5= getResources().getDrawable( R.drawable.cucumber );
+                Drawable imagen6= getResources().getDrawable( R.drawable.chili );
+
+                elemento1DeLaFila1.setBackground(imagen1);
+                elemento2DeLaFila1.setBackground(imagen2);
+                elemento3DeLaFila1.setBackground(imagen3);
+                elemento1DeLaFila2.setBackground(imagen4);
+                elemento2DeLaFila2.setBackground(imagen5);
+                elemento3DeLaFila2.setBackground(imagen6);
+
+
                 elemento1DeLaFila1.setText(listas.get(1).getListaDeIngredientes().get(0).getNombre());
                 elemento2DeLaFila1.setText(listas.get(1).getListaDeIngredientes().get(1).getNombre());
                 elemento3DeLaFila1.setText(listas.get(1).getListaDeIngredientes().get(2).getNombre());
@@ -169,6 +260,7 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
 
         Button botonCarne = (Button) findViewById(R.id.botonCarne);
         botonCarne.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View v) {
                 TextView elemento1DeLaFila1 = (TextView) findViewById(R.id.txt_vp_item_list);
@@ -177,6 +269,21 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
                 TextView elemento1DeLaFila2 = (TextView) findViewById(R.id.txt_vp_item_list3);
                 TextView elemento2DeLaFila2 = (TextView) findViewById(R.id.txt_vp_item_list4);
                 TextView elemento3DeLaFila2 = (TextView) findViewById(R.id.txt_vp_item_list5);
+
+                Drawable imagen1= getResources().getDrawable( R.drawable.shrimp );
+                Drawable imagen2= getResources().getDrawable( R.drawable.bacon );
+                Drawable imagen3= getResources().getDrawable( R.drawable.egg );
+                Drawable imagen4= getResources().getDrawable( R.drawable.chiken );
+                Drawable imagen5= getResources().getDrawable( R.drawable.sausage );
+                Drawable imagen6= getResources().getDrawable( R.drawable.steak );
+
+                elemento1DeLaFila1.setBackground(imagen1);
+                elemento2DeLaFila1.setBackground(imagen2);
+                elemento3DeLaFila1.setBackground(imagen3);
+                elemento1DeLaFila2.setBackground(imagen4);
+                elemento2DeLaFila2.setBackground(imagen5);
+                elemento3DeLaFila2.setBackground(imagen6);
+
                 elemento1DeLaFila1.setText(listas.get(2).getListaDeIngredientes().get(0).getNombre());
                 elemento2DeLaFila1.setText(listas.get(2).getListaDeIngredientes().get(1).getNombre());
                 elemento3DeLaFila1.setText(listas.get(2).getListaDeIngredientes().get(2).getNombre());
@@ -188,6 +295,7 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
 
         Button botonLacteos = (Button) findViewById(R.id.botonLacteos);
         botonLacteos.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View v) {
                 TextView elemento1DeLaFila1 = (TextView) findViewById(R.id.txt_vp_item_list);
@@ -196,6 +304,21 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
                 TextView elemento1DeLaFila2 = (TextView) findViewById(R.id.txt_vp_item_list3);
                 TextView elemento2DeLaFila2 = (TextView) findViewById(R.id.txt_vp_item_list4);
                 TextView elemento3DeLaFila2 = (TextView) findViewById(R.id.txt_vp_item_list5);
+
+                Drawable imagen1= getResources().getDrawable( R.drawable.milk );
+                Drawable imagen2= getResources().getDrawable( R.drawable.coffee);
+                Drawable imagen3= getResources().getDrawable( R.drawable.bread );
+                Drawable imagen4= getResources().getDrawable( R.drawable.sugar );
+                Drawable imagen5= getResources().getDrawable( R.drawable.cheese );
+                Drawable imagen6= getResources().getDrawable( R.drawable.mushroom );
+
+                elemento1DeLaFila1.setBackground(imagen1);
+                elemento2DeLaFila1.setBackground(imagen2);
+                elemento3DeLaFila1.setBackground(imagen3);
+                elemento1DeLaFila2.setBackground(imagen4);
+                elemento2DeLaFila2.setBackground(imagen5);
+                elemento3DeLaFila2.setBackground(imagen6);
+
                 elemento1DeLaFila1.setText(listas.get(3).getListaDeIngredientes().get(0).getNombre());
                 elemento2DeLaFila1.setText(listas.get(3).getListaDeIngredientes().get(1).getNombre());
                 elemento3DeLaFila1.setText(listas.get(3).getListaDeIngredientes().get(2).getNombre());
@@ -204,6 +327,7 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
                 elemento3DeLaFila2.setText(listas.get(3).getListaDeIngredientes().get(5).getNombre());
             }
         });
+
 
     }
 
