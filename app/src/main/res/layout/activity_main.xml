@@ -1,53 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:weightSum="5"
-    android:background="@color/light_blue">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        android:background="@color/green"
-        app:title="@string/app_name"
-        >
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:layout_gravity="top"
+        android:src="@drawable/kitchen" />
 
-
-
-    </android.support.v7.widget.Toolbar>
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="Busca Recetas !!"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:textColor="@color/black"/>
+        android:layout_height="match_parent"
 
-    <android.support.v7.widget.SearchView
-        android:id="@+id/buscar_ini"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clickable="true">
-    </android.support.v7.widget.SearchView>
+        android:orientation="vertical">
 
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            android:background="@color/green"
+            app:title="@string/app_name"
+            >
 
-    <Button
-        android:id="@+id/btn_horizontal_coordinator_ntb"
-        android:layout_margin="50dp"
-        android:layout_width="300dp"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:text="Ver lista de ingredientes"
-        android:textColor="@color/black"
-        android:background="#B3E5FC"
-        android:textColorLink="#FFFFFF"/>
+        </android.support.v7.widget.Toolbar>
 
-</LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="Busca Recetas !!"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@color/black"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="20dp"
+            android:weightSum="9"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.SearchView
+                android:id="@+id/buscar_ini"
+                android:layout_weight="7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:background="#99ffffff"
+                app:defaultQueryHint="Nombre de receta"
+                android:clickable="true">
+            </android.support.v7.widget.SearchView>
+
+            <Button
+                android:id="@+id/btn_search"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Buscar"
+                android:textColor="@color/black"
+                android:background="#9942dff4"
+                android:textColorLink="#FFFFFF"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_horizontal_coordinator_ntb"
+            android:layout_width="fill_parent"
+            android:layout_height="100dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:text="Ver lista de ingredientes"
+            android:paddingLeft="30dip"
+            android:drawableLeft="@android:drawable/ic_menu_sort_by_size"
+            android:textColor="@color/black"
+            android:background="#dd8bc34a"
+            android:textColorLink="#FFFFFF"/>
+
+    </LinearLayout>
+</FrameLayout>
