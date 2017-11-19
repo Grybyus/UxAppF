@@ -8,9 +8,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.Toast;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+
+
 
 public class ListaRecetaActivity extends AppCompatActivity {
     private Toolbar toolbar;
@@ -24,6 +30,8 @@ public class ListaRecetaActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationIcon(R.drawable.chef_home);
+
+        HashMap<String,ArrayList<Receta>> indice = new HashMap<String, ArrayList<Receta>>();
 
         ArrayList<Receta> recetaArrayList = new ArrayList<Receta>();
         Receta receta1 = new Receta(1,"Ensalada de Lechuga", "Una exquisita ensalada para refrescar", "receta1",new ArrayList<>(Arrays.asList("Lechuga", "Aceite","Sal","Limón")),new ArrayList<>(Arrays.asList("Lavar la lechuga", "Cortar la lechuga","Volver a lavar la lechuga","Poner lechuga picada en el recipiente","Poner una cucharada de aceite","Poner media cucharada de sal","Exprimir medio limón sobre la lechuga","Servir")));
@@ -46,6 +54,7 @@ public class ListaRecetaActivity extends AppCompatActivity {
         Receta receta18 = new Receta(18,"Empanadas fritas de pino", "Comida tradicional chilena", "receta8",new ArrayList<>(Arrays.asList("Carne molida", "Cebolla","Harina con polvo de hornear","Manteca","Huevos")),new ArrayList<>(Arrays.asList("Cortar cebolla y poner en sarten con aceite", "Agregar carne molida minetras se huerve agua para cocer huevos","Cortar huevos duros sin cascara","Preparar masa de empanadas","Llenar con carne y huevo","Poner en aceite a freir","Servir")));
         Receta receta19 = new Receta(19,"Cremoso de quínoa", "Comida sana y sabrosa", "receta9",new ArrayList<>(Arrays.asList("Quinoa","Sofrito con ajo","Pimentones","Arvejas","Salsa de tomates")),new ArrayList<>(Arrays.asList("Cocinar en agua con aceite y sal la quinoa por 8 minutos","Temperar ssarten con aceita y agregar sofrito y pimentones, salsa de tomate y arvejas","Colocar quinoa en la mezcla y calentar por 3 minutos","Dejar reposar por 3 minutos y servir")));
         Receta receta20 = new Receta(20,"Buñuelos de zanahoria", "Cocina sano y económico", "receta10",new ArrayList<>(Arrays.asList("Zanahoria","Huevos","Queso rallado","Papas","Agua con gas")),new ArrayList<>(Arrays.asList("Pelar papas y cortar antes de cocer","Rallar zanahorias","Moler papas y juntar con zanahorias","Echar queso y agua con gas y huevos","Servir")));
+
         recetaArrayList.add(receta1);
         recetaArrayList.add(receta2);
         recetaArrayList.add(receta3);
@@ -66,7 +75,43 @@ public class ListaRecetaActivity extends AppCompatActivity {
         recetaArrayList.add(receta18);
         recetaArrayList.add(receta19);
         recetaArrayList.add(receta20);
-        RecetaArrayAdapter adapter = new RecetaArrayAdapter(this, recetaArrayList);
+
+        for(Receta r: recetaArrayList){
+            String[] palabras = r.getNombre().split("\\s+");
+            for(String p: palabras){
+                if(indice.get(p.toLowerCase()) == null){
+                    indice.put(p.toLowerCase(),new ArrayList<Receta>());
+                }
+                indice.get(p.toLowerCase()).add(r);
+            }
+        }
+
+        String consulta = "con";
+        String[] aconsulta = consulta.toLowerCase().split("\\s+");
+        ArrayList<Receta> consultaResult = new ArrayList<Receta>();
+
+        Log.d("UXAPP","keys ="+Arrays.toString(indice.keySet().toArray()));
+
+        final HashMap<Receta,Integer> puntaje = new HashMap<>();
+
+        for(String key:indice.keySet()){
+            for(String c:aconsulta){
+                if(key.contains(c)){
+                    for(Receta re:indice.get(key)){
+                        if(!consultaResult.contains(re)){
+                            consultaResult.add(re);
+                            puntaje.put(re,1);
+                        }else{
+                            puntaje.put(re, puntaje.get(re)+1);
+                        }
+                    }
+                }
+            }
+        }
+
+        Collections.sort(consultaResult,new RecetaSort(puntaje));
+
+        RecetaArrayAdapter adapter = new RecetaArrayAdapter(this, consultaResult);
         ListView listView = (ListView) findViewById(R.id.lvRecetas);
         listView.setAdapter(adapter);
 
