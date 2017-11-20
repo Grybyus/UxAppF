@@ -35,6 +35,15 @@ public class Receta
         }
         return ids;
     }
+    public ArrayList<Integer> getIngredientesTipos() {
+
+        ArrayList<Integer> tipos = new ArrayList<>();
+
+        for(Ingrediente ingrediente:ingredientes.getListaDeIngredientes()){
+            tipos.add(ingrediente.getTipo());
+        }
+        return tipos;
+    }
 
 
     public Receta(int id, String nombre, String descripcion, String nombreImagen, ListaIngredientes ingredientes, ArrayList<String> pasos)
