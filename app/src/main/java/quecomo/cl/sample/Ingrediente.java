@@ -82,15 +82,28 @@ public class Ingrediente {
         return ingredienteVacio;
     }
 
-    static public boolean comprobarSiExisteIngredienteEnLista(String nombreDelIngredienteAComprobar, ArrayList<Ingrediente> canasta)
+    static public boolean comprobarSiExisteIngredienteEnLista(int idDelIngredienteAComprobar, ArrayList<Ingrediente> canasta)
     {
         for (Ingrediente ingrediente : canasta)
         {
-            if(ingrediente.nombre == nombreDelIngredienteAComprobar)
+            if(ingrediente.id == idDelIngredienteAComprobar)
             {
                 return true;
             }
         }
         return false;
+    }
+    static public Ingrediente buscarIngredientePorID(int ID, ArrayList<Ingrediente> listaDeIngredientes)
+    {
+        for (Ingrediente ingrediente : listaDeIngredientes)
+        {
+            if(ingrediente.id == ID)
+            {
+                return ingrediente;
+            }
+        }
+        Log.e("ERROR DE BUSQUEDA", "El elemento no ha sido encontrado");
+        Ingrediente ingredienteVacio = new Ingrediente(-1, "","",-1);
+        return ingredienteVacio;
     }
 }

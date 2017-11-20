@@ -5,9 +5,35 @@
     android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="20dp"
     android:background="@color/light_blue"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
+
+
+    <android.support.v4.view.ViewPager
+        android:fitsSystemWindows="true"
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_marginBottom="48dp"/>
+
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabGravity="fill"
+        app:tabMode="fixed"
+        android:background="@color/yellow"
+        android:elevation="6dp"
+        app:tabTextColor="#d3d3d3"
+        app:tabSelectedTextColor="#ffffff"
+        app:tabIndicatorColor="#ff00ff"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_gravity="end|bottom"
+        />
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -59,13 +85,6 @@
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/vp_horizontal_ntb"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
-
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/botonBuscarRecetas"
@@ -78,64 +97,6 @@
         android:background="@color/green"
         android:textColor="@color/white" />
 
-    <RelativeLayout
-        android:layout_marginTop="620dp"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"/>
-
-    <Button
-        android:id="@+id/botonFrutas"
-        android:layout_marginTop="620dp"
-        android:layout_width="90dp"
-        android:layout_height="match_parent"
-        android:background="@android:color/transparent"
-        android:clickable="true">
-    </Button>
-
-    <Button
-        android:id="@+id/botonVerduras"
-        android:layout_marginTop="620dp"
-        android:layout_width="90dp"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="90dp"
-        android:background="@android:color/transparent"
-        android:clickable="true">
-    </Button>
-
-    <Button
-        android:id="@+id/botonCarne"
-        android:layout_marginTop="620dp"
-        android:layout_width="90dp"
-        android:layout_height="match_parent"
-        android:clickable="true"
-        android:layout_marginLeft="180dp"
-        android:background="@android:color/transparent">
-    </Button>
-
-    <Button
-        android:id="@+id/botonLacteos"
-        android:layout_marginTop="620dp"
-        android:layout_width="90dp"
-        android:layout_height="200dp"
-        android:layout_marginLeft="270dp"
-        android:background="@android:color/transparent"
-        android:clickable="true">
-    </Button>
-
-
-    <quecomo.cl.library.ntb.NavigationTabBar
-        android:id="@+id/ntb_horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_gravity="bottom"
-        app:ntb_badge_size="12sp"
-        app:ntb_badge_bg_color="@color/green"
-        app:ntb_badge_gravity="top"
-        app:ntb_badge_position="left"
-        app:ntb_badge_title_color="#000000"
-        app:ntb_badge_use_typeface="true"
-        app:ntb_badged="true"
-        app:ntb_typeface="fonts/agency.ttf"/>
 
 
 </android.support.design.widget.CoordinatorLayout>
