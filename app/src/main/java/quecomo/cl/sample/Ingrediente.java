@@ -81,4 +81,16 @@ public class Ingrediente {
         Ingrediente ingredienteVacio = new Ingrediente(-1, "","",-1);
         return ingredienteVacio;
     }
+
+    static public boolean comprobarSiExisteIngredienteEnLista(String nombreDelIngredienteAComprobar, ArrayList<Ingrediente> canasta)
+    {
+        for (Ingrediente ingrediente : canasta)
+        {
+            if(ingrediente.nombre == nombreDelIngredienteAComprobar)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

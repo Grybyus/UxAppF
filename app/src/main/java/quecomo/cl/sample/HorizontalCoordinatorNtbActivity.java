@@ -555,6 +555,10 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v)
                     {
+                        if(Ingrediente.comprobarSiExisteIngredienteEnLista(elemento1DeLaFila1.getText().toString(), canasta))
+                        {
+                            return;
+                        }
                         Ingrediente ingredienteBuscado = Ingrediente.buscarIngredientePorNombre(elemento1DeLaFila1.getText().toString(), listaDeTodosLosIngredientes);
                         canasta.add(ingredienteBuscado);
                         IngredienteArrayAdapter adapter = new IngredienteArrayAdapter(v.getContext(), canasta);
@@ -568,6 +572,10 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v)
                     {
+                        if(Ingrediente.comprobarSiExisteIngredienteEnLista(elemento2DeLaFila1.getText().toString(), canasta))
+                        {
+                            return;
+                        }
                         Ingrediente ingredienteBuscado = Ingrediente.buscarIngredientePorNombre(elemento2DeLaFila1.getText().toString(), listaDeTodosLosIngredientes);
                         canasta.add(ingredienteBuscado);
                         IngredienteArrayAdapter adapter = new IngredienteArrayAdapter(v.getContext(), canasta);
@@ -581,6 +589,10 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v)
                     {
+                        if(Ingrediente.comprobarSiExisteIngredienteEnLista(elemento3DeLaFila1.getText().toString(), canasta))
+                        {
+                            return;
+                        }
                         Ingrediente ingredienteBuscado = Ingrediente.buscarIngredientePorNombre(elemento3DeLaFila1.getText().toString(), listaDeTodosLosIngredientes);
                         canasta.add(ingredienteBuscado);
                         IngredienteArrayAdapter adapter = new IngredienteArrayAdapter(v.getContext(), canasta);
@@ -594,6 +606,10 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v)
                     {
+                        if(Ingrediente.comprobarSiExisteIngredienteEnLista(elemento1DeLaFila2.getText().toString(), canasta))
+                        {
+                            return;
+                        }
                         Ingrediente ingredienteBuscado = Ingrediente.buscarIngredientePorNombre(elemento1DeLaFila2.getText().toString(), listaDeTodosLosIngredientes);
                         canasta.add(ingredienteBuscado);
                         IngredienteArrayAdapter adapter = new IngredienteArrayAdapter(v.getContext(), canasta);
@@ -604,9 +620,14 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
 
                 elemento2DeLaFila2.setOnClickListener(new View.OnClickListener()
                 {
+
                     @Override
                     public void onClick(View v)
                     {
+                        if(Ingrediente.comprobarSiExisteIngredienteEnLista(elemento2DeLaFila2.getText().toString(), canasta))
+                        {
+                            return;
+                        }
                         Ingrediente ingredienteBuscado = Ingrediente.buscarIngredientePorNombre(elemento2DeLaFila2.getText().toString(), listaDeTodosLosIngredientes);
                         canasta.add(ingredienteBuscado);
                         IngredienteArrayAdapter adapter = new IngredienteArrayAdapter(v.getContext(), canasta);
@@ -620,6 +641,10 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v)
                     {
+                        if(Ingrediente.comprobarSiExisteIngredienteEnLista(elemento3DeLaFila2.getText().toString(), canasta))
+                        {
+                            return;
+                        }
                         Ingrediente ingredienteBuscado = Ingrediente.buscarIngredientePorNombre(elemento3DeLaFila2.getText().toString(), listaDeTodosLosIngredientes);
                         canasta.add(ingredienteBuscado);
                         IngredienteArrayAdapter adapter = new IngredienteArrayAdapter(v.getContext(), canasta);
