@@ -824,59 +824,8 @@ public class NavigationTabBar extends View implements ViewPager.OnPageChangeList
     }
 
     // Set model index from touch or programmatically
-    public void setModelIndex(final int modelIndex, final boolean isForce) {
-        if (mAnimator.isRunning()) return;
-        if (mModels.isEmpty()) return;
-
-        int index = modelIndex;
-        boolean force = isForce;
-
-        // This check gives us opportunity to have an non selected model
-        if (mIndex == INVALID_INDEX) force = true;
-        // Detect if last is the same
-        if (index == mIndex) force = true;
-        // Snap index to models size
-        index = Math.max(0, Math.min(index, mModels.size() - 1));
-
-        mIsResizeIn = index < mIndex;
-        mLastIndex = mIndex;
-        mIndex = index;
-
-        mIsSetIndexFromTabBar = true;
-        if (mIsViewPagerMode) {
-            if (mViewPager == null) throw new IllegalStateException("ViewPager is null.");
-            mViewPager.setCurrentItem(index, !force);
-        }
-
-        // Set startX and endX for animation,
-        // where we animate two sides of rect with different interpolation
-        if (force) {
-            mStartPointerX = mIndex * mModelSize;
-            mEndPointerX = mStartPointerX;
-        } else {
-            mStartPointerX = mPointerLeftTop;
-            mEndPointerX = mIndex * mModelSize;
-        }
-
-        // If it force, so update immediately, else animate
-        // This happens if we set index onCreate or something like this
-        // You can use force param or call this method in some post()
-        if (force) {
-            updateIndicatorPosition(MAX_FRACTION);
-
-            if (mOnTabBarSelectedIndexListener != null)
-                mOnTabBarSelectedIndexListener.onStartTabSelected(mModels.get(mIndex), mIndex);
-
-            // Force onPageScrolled listener and refresh VP
-            if (mIsViewPagerMode) {
-                if (!mViewPager.isFakeDragging()) mViewPager.beginFakeDrag();
-                if (mViewPager.isFakeDragging()) mViewPager.fakeDragBy(0.0F);
-                if (mViewPager.isFakeDragging()) mViewPager.endFakeDrag();
-            } else {
-                if (mOnTabBarSelectedIndexListener != null)
-                    mOnTabBarSelectedIndexListener.onEndTabSelected(mModels.get(mIndex), mIndex);
-            }
-        } else mAnimator.start();
+    public void setModelIndex(final int modelIndex, final boolean isForce)
+    {
     }
 
     // Deselect active index and reset pointer
