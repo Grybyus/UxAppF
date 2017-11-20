@@ -2,33 +2,24 @@ package quecomo.cl.sample;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,20 +27,14 @@ import android.widget.Toast;
 import quecomo.cl.library.ntb.NavigationTabBar;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
-
-
 
 public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
     private Toolbar toolbar;
-    Integer posicionEnLista = 0;
-    Integer listaActual = 2;
     Button botonBuscar;
     ArrayList<ListaIngredientes> listas;
-    NavigationTabBar navigationTabBar;
-    ViewPager viewPager;
-    RecyclerView recyclerView;
+    ArrayList<Ingrediente> canasta;
+    ListView listView;
+    ArrayList<Ingrediente> listaDeTodosLosIngredientes;
 
     public static final Ingrediente ing1 = new Ingrediente(1,"Leche", "milk",  4);
     public static final Ingrediente ing2 = new Ingrediente(2,"Café", "coffee",  5);
@@ -197,25 +182,70 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
 
         ListaIngredientes objetoListaDeLacteos = new ListaIngredientes(listaDeLacteos);
 
+        listaDeTodosLosIngredientes = new ArrayList<Ingrediente>();
+        listaDeTodosLosIngredientes.add(ing1);
+        listaDeTodosLosIngredientes.add(ing2);
+        listaDeTodosLosIngredientes.add(ing3);
+        listaDeTodosLosIngredientes.add(ing4);
+        listaDeTodosLosIngredientes.add(ing5);
+        listaDeTodosLosIngredientes.add(ing6);
+        listaDeTodosLosIngredientes.add(ing7);
+        listaDeTodosLosIngredientes.add(ing8);
+        listaDeTodosLosIngredientes.add(ing9);
+        listaDeTodosLosIngredientes.add(ing10);
+        listaDeTodosLosIngredientes.add(ing11);
+        listaDeTodosLosIngredientes.add(ing12);
+        listaDeTodosLosIngredientes.add(ing13);
+        listaDeTodosLosIngredientes.add(ing14);
+        listaDeTodosLosIngredientes.add(ing15);
+        listaDeTodosLosIngredientes.add(ing16);
+        listaDeTodosLosIngredientes.add(ing17);
+        listaDeTodosLosIngredientes.add(ing18);
+        listaDeTodosLosIngredientes.add(ing19);
+        listaDeTodosLosIngredientes.add(ing20);
+        listaDeTodosLosIngredientes.add(ing21);
+        listaDeTodosLosIngredientes.add(ing22);
+        listaDeTodosLosIngredientes.add(ing23);
+        listaDeTodosLosIngredientes.add(ing24);
+        listaDeTodosLosIngredientes.add(ing25);
+        listaDeTodosLosIngredientes.add(ing27);
+        listaDeTodosLosIngredientes.add(ing28);
+        listaDeTodosLosIngredientes.add(ing29);
+        listaDeTodosLosIngredientes.add(ing30);
+        listaDeTodosLosIngredientes.add(ing31);
+        listaDeTodosLosIngredientes.add(ing32);
+        listaDeTodosLosIngredientes.add(ing33);
+        listaDeTodosLosIngredientes.add(ing34);
+        listaDeTodosLosIngredientes.add(ing35);
+        listaDeTodosLosIngredientes.add(ing36);
+        listaDeTodosLosIngredientes.add(ing37);
+        listaDeTodosLosIngredientes.add(ing38);
+        listaDeTodosLosIngredientes.add(ing39);
+        listaDeTodosLosIngredientes.add(ing40);
+        listaDeTodosLosIngredientes.add(ing41);
+        listaDeTodosLosIngredientes.add(ing42);
+        listaDeTodosLosIngredientes.add(ing43);
+        listaDeTodosLosIngredientes.add(ing44);
+        listaDeTodosLosIngredientes.add(ing45);
+        listaDeTodosLosIngredientes.add(ing47);
 
-
-
+        canasta = new ArrayList<Ingrediente>();
 
         listas = new ArrayList<ListaIngredientes>();
         listas.add(objetoListaDeFrutas);
         listas.add(objetoListaDeVerduras);
         listas.add(objetoListaDeCarnes);
         listas.add(objetoListaDeLacteos);
+
         initUI();
 
-
-        IngredienteArrayAdapter adapter = new IngredienteArrayAdapter(this, listaDeLacteos);
-        ListView listView = (ListView) findViewById(R.id.lvIngredientes);
+        IngredienteArrayAdapter adapter = new IngredienteArrayAdapter(this, canasta);
+        listView = (ListView) findViewById(R.id.lvIngredientes);
         listView.setAdapter(adapter);
-
 
         CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsToolbar);
         collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(android.R.color.transparent));
+
 
         Button botonFrutas = (Button) findViewById(R.id.botonFrutas);
         botonFrutas.setOnClickListener(new View.OnClickListener() {
@@ -368,7 +398,7 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
         if (getSupportActionBar() != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             toolbar.setNavigationIcon(R.drawable.chef_home);}
-        viewPager = (ViewPager) findViewById(R.id.vp_horizontal_ntb);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.vp_horizontal_ntb);
         viewPager.setAdapter(new PagerAdapter()
         {
             @Override
@@ -390,7 +420,7 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
             public Object instantiateItem(final ViewGroup container, final int position)
             {
                 final View view = LayoutInflater.from(getBaseContext()).inflate(R.layout.item_vp_list, null, false);
-                recyclerView = (RecyclerView) view.findViewById(R.id.rv);
+                RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rv);
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext(), LinearLayoutManager.VERTICAL, false));
                 recyclerView.setAdapter(new RecycleAdapter());
@@ -399,7 +429,7 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
             }
         });
         final String[] colors = getResources().getStringArray(R.array.default_preview);
-        navigationTabBar = (NavigationTabBar) findViewById(R.id.ntb_horizontal);
+        NavigationTabBar navigationTabBar = (NavigationTabBar) findViewById(R.id.ntb_horizontal);
         final ArrayList<NavigationTabBar.Model> models = new ArrayList<>();
         models.add(
                 new NavigationTabBar.Model.Builder(
@@ -485,51 +515,99 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
 
         public class ViewHolder extends RecyclerView.ViewHolder {
 
-            public TextView txt;
-            public TextView elemento2DeLaFila;
-            public TextView elemento3DeLaFila;
+            public TextView elemento1DeLaFila1;
+            public TextView elemento2DeLaFila1;
+            public TextView elemento3DeLaFila1;
+            public TextView elemento1DeLaFila2;
+            public TextView elemento2DeLaFila2;
+            public TextView elemento3DeLaFila2;
 
             public ViewHolder(final View itemView) {
                 super(itemView);
-//                txt = (TextView) itemView.findViewById(R.id.txt_vp_item_list);
-//                elemento2DeLaFila = (TextView) itemView.findViewById(R.id.txt_vp_item_list1);
-//                elemento3DeLaFila = (TextView) itemView.findViewById(R.id.txt_vp_item_list2);
-//                txt.setText(listas.get(listaActual).getListaDeIngredientes().get(posicionEnLista).getNombre());
-//                elemento2DeLaFila.setText(listas.get(listaActual).getListaDeIngredientes().get(posicionEnLista+1).getNombre());
-//                elemento3DeLaFila.setText(listas.get(listaActual).getListaDeIngredientes().get(posicionEnLista+2).getNombre());
-//                txt.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v)
-//                {
-//                    TextView editable = (TextView) findViewById(R.id.backdrop);
-//                    String mayo =  txt.getId() + "";
-//
-//                    editable.setText(mayo);
-//                }
-//            });
-//                elemento2DeLaFila.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v)
-//                    {
-//                        TextView editable = (TextView) findViewById(R.id.backdrop);
-//                        String mayo = elemento2DeLaFila.getId() + "";
-//                        editable.setText(mayo);
-//                    }
-//                });
-//                elemento3DeLaFila.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v)
-//                    {
-//                        TextView editable = (TextView) findViewById(R.id.backdrop);
-//                        String mayo = elemento3DeLaFila.getId() + "";
-//                        editable.setText(mayo);
-//                    }
-//                });
-//                posicionEnLista = posicionEnLista+3;
-                if(posicionEnLista >= 5)
+                elemento1DeLaFila1 = (TextView) itemView.findViewById(R.id.txt_vp_item_list);
+                elemento2DeLaFila1 = (TextView) itemView.findViewById(R.id.txt_vp_item_list1);
+                elemento3DeLaFila1 = (TextView) itemView.findViewById(R.id.txt_vp_item_list2);
+                elemento1DeLaFila2 = (TextView) itemView.findViewById(R.id.txt_vp_item_list3);
+                elemento2DeLaFila2 = (TextView) itemView.findViewById(R.id.txt_vp_item_list4);
+                elemento3DeLaFila2 = (TextView) itemView.findViewById(R.id.txt_vp_item_list5);
+
+                elemento1DeLaFila1.setOnClickListener(new View.OnClickListener()
                 {
-                    posicionEnLista = 0;
-                }
+                    @Override
+                    public void onClick(View v)
+                    {
+                        Ingrediente ingredienteBuscado = Ingrediente.buscarIngredientePorNombre(elemento1DeLaFila1.getText().toString(), listaDeTodosLosIngredientes);
+                        canasta.add(ingredienteBuscado);
+                        IngredienteArrayAdapter adapter = new IngredienteArrayAdapter(v.getContext(), canasta);
+                        listView = (ListView) findViewById(R.id.lvIngredientes);
+                        listView.setAdapter(adapter);
+                    }
+                });
+
+                elemento2DeLaFila1.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        Ingrediente ingredienteBuscado = Ingrediente.buscarIngredientePorNombre(elemento2DeLaFila1.getText().toString(), listaDeTodosLosIngredientes);
+                        canasta.add(ingredienteBuscado);
+                        IngredienteArrayAdapter adapter = new IngredienteArrayAdapter(v.getContext(), canasta);
+                        listView = (ListView) findViewById(R.id.lvIngredientes);
+                        listView.setAdapter(adapter);
+                    }
+                });
+
+                elemento3DeLaFila1.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        Ingrediente ingredienteBuscado = Ingrediente.buscarIngredientePorNombre(elemento3DeLaFila1.getText().toString(), listaDeTodosLosIngredientes);
+                        canasta.add(ingredienteBuscado);
+                        IngredienteArrayAdapter adapter = new IngredienteArrayAdapter(v.getContext(), canasta);
+                        listView = (ListView) findViewById(R.id.lvIngredientes);
+                        listView.setAdapter(adapter);
+                    }
+                });
+
+                elemento1DeLaFila2.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        Ingrediente ingredienteBuscado = Ingrediente.buscarIngredientePorNombre(elemento1DeLaFila2.getText().toString(), listaDeTodosLosIngredientes);
+                        canasta.add(ingredienteBuscado);
+                        IngredienteArrayAdapter adapter = new IngredienteArrayAdapter(v.getContext(), canasta);
+                        listView = (ListView) findViewById(R.id.lvIngredientes);
+                        listView.setAdapter(adapter);
+                    }
+                });
+
+                elemento2DeLaFila2.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        Ingrediente ingredienteBuscado = Ingrediente.buscarIngredientePorNombre(elemento2DeLaFila2.getText().toString(), listaDeTodosLosIngredientes);
+                        canasta.add(ingredienteBuscado);
+                        IngredienteArrayAdapter adapter = new IngredienteArrayAdapter(v.getContext(), canasta);
+                        listView = (ListView) findViewById(R.id.lvIngredientes);
+                        listView.setAdapter(adapter);
+                    }
+                });
+
+                elemento3DeLaFila2.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        Ingrediente ingredienteBuscado = Ingrediente.buscarIngredientePorNombre(elemento3DeLaFila2.getText().toString(), listaDeTodosLosIngredientes);
+                        canasta.add(ingredienteBuscado);
+                        IngredienteArrayAdapter adapter = new IngredienteArrayAdapter(v.getContext(), canasta);
+                        listView = (ListView) findViewById(R.id.lvIngredientes);
+                        listView.setAdapter(adapter);
+                    }
+                });
 
             }
         }

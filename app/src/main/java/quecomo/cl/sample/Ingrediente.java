@@ -1,5 +1,7 @@
 package quecomo.cl.sample;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 /**
@@ -66,4 +68,17 @@ public class Ingrediente {
         return this.nombre;
     }
 
+    static public Ingrediente buscarIngredientePorNombre(String nombre, ArrayList<Ingrediente> listaDeIngredientes)
+    {
+        for (Ingrediente ingrediente : listaDeIngredientes)
+        {
+            if(ingrediente.nombre == nombre)
+            {
+                return ingrediente;
+            }
+        }
+        Log.e("ERROR DE BUSQUEDA", "El elemento no ha sido encontrado");
+        Ingrediente ingredienteVacio = new Ingrediente(-1, "","",-1);
+        return ingredienteVacio;
+    }
 }
