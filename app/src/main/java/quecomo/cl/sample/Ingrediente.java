@@ -8,6 +8,11 @@ import java.util.ArrayList;
 
 public class Ingrediente {
     private int id;
+    public static final int FRUTA = 1;
+    public static final int VERDURA = 2;
+    public static final int CARNE = 3;
+    public static final int LACTEO = 4;
+    public static final int OTRO = 5;
     private int tipo; //1: fruta, 2: verdura, 3: carnes y pescados y marinos, 4: lacteos, 5: otros.
     private String nombre;
     private String imagen;
@@ -54,6 +59,11 @@ public class Ingrediente {
     public void setTipo(String imagen)
     {
         this.tipo = tipo;
+    }
+
+    @Override
+    public String toString(){
+        return this.nombre;
     }
 
 }

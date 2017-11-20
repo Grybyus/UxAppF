@@ -9,18 +9,24 @@ public class Receta
     private String nombre;
     private String descripcion;
     private String nombreImagen;
-    private ArrayList<String> ingredientes;
     private ArrayList<String> pasos;
+    private ListaIngredientes ingredientes;
 
     public ArrayList<String> getPasos() {
         return pasos;
     }
 
     public ArrayList<String> getIngredientes() {
-        return ingredientes;
+
+        ArrayList<String> ing = new ArrayList<>();
+
+        for(Ingrediente ingrediente:ingredientes.getListaDeIngredientes()){
+            ing.add(ingrediente.toString());
+        }
+        return ing;
     }
 
-    public Receta(int id, String nombre, String descripcion, String nombreImagen, ArrayList<String> ingredientes, ArrayList<String> pasos)
+    public Receta(int id, String nombre, String descripcion, String nombreImagen, ListaIngredientes ingredientes, ArrayList<String> pasos)
     {
         this.id = id;
         this.nombre = nombre;

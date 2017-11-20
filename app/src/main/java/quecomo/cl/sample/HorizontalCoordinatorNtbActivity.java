@@ -37,6 +37,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
+
+
 public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
     private Toolbar toolbar;
     Integer posicionEnLista = 0;
@@ -46,6 +48,73 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
     NavigationTabBar navigationTabBar;
     ViewPager viewPager;
     RecyclerView recyclerView;
+
+    public static final Ingrediente ing1 = new Ingrediente(1,"Leche", "milk",  4);
+    public static final Ingrediente ing2 = new Ingrediente(2,"Café", "coffee",  5);
+    public static final Ingrediente ing3 = new Ingrediente(3,"Pan", "bread", 5);
+    public static final Ingrediente ing4 = new Ingrediente(4,"Zanahoria", "carrot", 2);
+    public static final Ingrediente ing5 = new Ingrediente(5,"Manzana", "apple", 1);
+    public static final Ingrediente ing6 = new Ingrediente(6,"Lechuga", "letuce", 2);
+    public static final Ingrediente ing7 = new Ingrediente(7,"Papas", "potatoes", 2);
+    public static final Ingrediente ing8 = new Ingrediente(8,"Zapallo", "pumpkin", 2);
+    public static final Ingrediente ing9 = new Ingrediente(9,"Piña", "pineapple", 1);
+    public static final Ingrediente ing10 = new Ingrediente(10,"Palta", "avocado", 1);
+    public static final Ingrediente ing11 = new Ingrediente(11,"Pera", "pear", 1);
+    public static final Ingrediente ing12 = new Ingrediente(12,"Durazno", "peach", 1);
+    public static final Ingrediente ing13 = new Ingrediente(13,"Cereza", "cherry", 1);
+    public static final Ingrediente ing14 = new Ingrediente(14,"Azucar", "sugar", 5);
+    public static final Ingrediente ing15 = new Ingrediente(15,"Maiz", "corn", 1);
+    public static final Ingrediente ing16 = new Ingrediente(16,"Pepino", "cucumber", 2);
+    public static final Ingrediente ing17 = new Ingrediente(17,"Ají", "chili", 2);
+    public static final Ingrediente ing18 = new Ingrediente(18,"Sandía", "watermelon", 2);
+    public static final Ingrediente ing19 = new Ingrediente(19,"Queso", "cheese", 4);
+    public static final Ingrediente ing20 = new Ingrediente(20,"Camarón", "shrimp", 3);
+    public static final Ingrediente ing21 = new Ingrediente(21,"Naranja", "orange", 1);
+    public static final Ingrediente ing22 = new Ingrediente(22,"Maní", "peanut", 1);
+    public static final Ingrediente ing23 = new Ingrediente(23,"Uvas", "grapes", 1);
+    public static final Ingrediente ing24 = new Ingrediente(24,"Berenjena", "eggplant",2);
+    public static final Ingrediente ing25 = new Ingrediente(25,"Tocino", "bacon", 3);
+    public static final Ingrediente ing26 = new Ingrediente(26,"Huevos", "egg", 3);
+    public static final Ingrediente ing27 = new Ingrediente(27,"Limón", "lemon",1);
+    public static final Ingrediente ing28 = new Ingrediente(28,"Tomate", "tomato", 1);
+    public static final Ingrediente ing29 = new Ingrediente(29,"Banana", "banana", 1);
+    public static final Ingrediente ing30 = new Ingrediente(30,"Fresa", "strawberry", 1);
+    public static final Ingrediente ing31 = new Ingrediente(31,"Champiñon", "mushroom", 5);
+    public static final Ingrediente ing32 = new Ingrediente(32,"Levadura", "yeast", 5);
+    public static final Ingrediente ing33 = new Ingrediente(33,"Mantequilla", "butter", 4);
+    public static final Ingrediente ing34 = new Ingrediente(34,"Nutella", "nutela", 5);
+    public static final Ingrediente ing35 = new Ingrediente(35,"Aceite", "oil", 5);
+    public static final Ingrediente ing36 = new Ingrediente(36,"Nuez", "nut", 1);
+    public static final Ingrediente ing37 = new Ingrediente(37,"Harina", "flour", 5);
+    public static final Ingrediente ing38 = new Ingrediente(38,"Helado", "icecream", 4);
+    public static final Ingrediente ing39 = new Ingrediente(39,"Pollo", "chiken",3);
+    public static final Ingrediente ing40 = new Ingrediente(40,"Salchicha", "sausage", 3);
+    public static final Ingrediente ing41 = new Ingrediente(41,"Bistec", "steak", 3);
+    public static final Ingrediente ing42 = new Ingrediente(42,"Pescado", "fish", 3);
+    public static final Ingrediente ing43 = new Ingrediente(43,"Salami", "salami", 3);
+    public static final Ingrediente ing44 = new Ingrediente(44,"Ajo", "garlic", 2);
+    public static final Ingrediente ing45 = new Ingrediente(45,"Cebollin", "onionin", 2);
+    public static final Ingrediente ing46 = new Ingrediente(46,"Cebolla", "onion", 2);
+    public static final Ingrediente ing47 = new Ingrediente(47,"Brócoli", "broccoli", 2);
+    public static final Ingrediente ing48 = new Ingrediente(48,"Quinoa", "broccoli", Ingrediente.VERDURA);
+    public static final Ingrediente ing49 = new Ingrediente(49,"Dextrosa", "sugar", Ingrediente.OTRO);
+    public static final Ingrediente ing50 = new Ingrediente(50,"Sal", "broccoli", Ingrediente.OTRO);
+    public static final Ingrediente ing51 = new Ingrediente(51,"Manjar", "broccoli", Ingrediente.LACTEO);
+    public static final Ingrediente ing52 = new Ingrediente(52,"Carne molida", "broccoli", Ingrediente.CARNE);
+    public static final Ingrediente ing53 = new Ingrediente(53,"Salsa de tomate", "broccoli", Ingrediente.OTRO);
+    public static final Ingrediente ing54 = new Ingrediente(54,"Ramen", "broccoli", Ingrediente.OTRO);
+    public static final Ingrediente ing55 = new Ingrediente(55,"Zapallo italiano", "broccoli", Ingrediente.VERDURA);
+    public static final Ingrediente ing56 = new Ingrediente(56,"Tallarines", "broccoli", Ingrediente.OTRO);
+    public static final Ingrediente ing57 = new Ingrediente(57,"Manteca", "broccoli", Ingrediente.OTRO);
+    public static final Ingrediente ing58 = new Ingrediente(58,"Arvejas", "broccoli", Ingrediente.OTRO);
+    public static final Ingrediente ing59 = new Ingrediente(59,"Pimentón", "broccoli", Ingrediente.OTRO);
+    public static final Ingrediente ing60 = new Ingrediente(60,"Queso rallado", "broccoli", Ingrediente.OTRO);
+    public static final Ingrediente ing61 = new Ingrediente(61,"Primavera", "broccoli", Ingrediente.OTRO);
+    public static final Ingrediente ing62 = new Ingrediente(62,"Agua con gas", "broccoli", Ingrediente.OTRO);
+    public static final Ingrediente ing63 = new Ingrediente(63,"Pasta", "broccoli", Ingrediente.OTRO);
+    public static final Ingrediente ing64 = new Ingrediente(64,"Polvo de hornear", "broccoli", Ingrediente.OTRO);
+    public static final Ingrediente ing65 = new Ingrediente(65,"Agua", "broccoli", Ingrediente.OTRO);
+    public static final Ingrediente ing66 = new Ingrediente(66,"Jamón", "broccoli", Ingrediente.OTRO);
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -61,57 +130,6 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-        Ingrediente ing1 = new Ingrediente(1,"Leche", "milk",  4);
-        Ingrediente ing2 = new Ingrediente(2,"Café", "coffee",  5);
-        Ingrediente ing3 = new Ingrediente(3,"Pan", "bread", 5);
-        Ingrediente ing4 = new Ingrediente(4,"zanahoria", "carrot", 2);
-        Ingrediente ing5 = new Ingrediente(5,"manzana", "apple", 1);
-        Ingrediente ing6 = new Ingrediente(6,"lechuga", "letuce", 2);
-        Ingrediente ing7 = new Ingrediente(7,"papa", "potatoes", 2);
-        Ingrediente ing8 = new Ingrediente(8,"zapallo", "pumpkin", 2);
-        Ingrediente ing9 = new Ingrediente(9,"piña", "pineapple", 1);
-        Ingrediente ing10 = new Ingrediente(10,"palta", "avocado", 1);
-        Ingrediente ing11 = new Ingrediente(11,"pera", "pear", 1);
-        Ingrediente ing12 = new Ingrediente(12,"durazno", "peach", 1);
-        Ingrediente ing13 = new Ingrediente(13,"cereza", "cherry", 1);
-        Ingrediente ing14 = new Ingrediente(14,"azucar", "sugar", 5);
-        Ingrediente ing15 = new Ingrediente(15,"maiz", "corn", 1);
-        Ingrediente ing16 = new Ingrediente(16,"pepino", "cucumber", 2);
-        Ingrediente ing17 = new Ingrediente(17,"ají", "chili", 2);
-        Ingrediente ing18 = new Ingrediente(18,"sandía", "watermelon", 2);
-        Ingrediente ing19 = new Ingrediente(19,"queso", "cheese", 4);
-        Ingrediente ing20 = new Ingrediente(20,"camarón", "shrimp", 3);
-        Ingrediente ing21 = new Ingrediente(21,"naranja", "orange", 1);
-        Ingrediente ing22 = new Ingrediente(22,"maní", "peanut", 1);
-        Ingrediente ing23 = new Ingrediente(23,"uvas", "grapes", 1);
-        Ingrediente ing24 = new Ingrediente(24,"berenjena", "eggplant",2);
-        Ingrediente ing25 = new Ingrediente(25,"tocino", "bacon", 3);
-        Ingrediente ing26 = new Ingrediente(26,"huevo", "egg", 3);
-        Ingrediente ing27 = new Ingrediente(27,"limón", "lemon",1);
-        Ingrediente ing28 = new Ingrediente(28,"tomate", "tomato", 1);
-        Ingrediente ing29 = new Ingrediente(29,"banana", "banana", 1);
-        Ingrediente ing30 = new Ingrediente(30,"fresa", "strawberry", 1);
-        Ingrediente ing31 = new Ingrediente(31,"champiñon", "mushroom", 5);
-        Ingrediente ing32 = new Ingrediente(32,"levadura", "yeast", 5);
-        Ingrediente ing33 = new Ingrediente(33,"mantequilla", "butter", 4);
-        Ingrediente ing34 = new Ingrediente(34,"nutella", "nutela", 5);
-        Ingrediente ing35 = new Ingrediente(35,"aceite", "oil", 5);
-        Ingrediente ing36 = new Ingrediente(36,"nuez", "nut", 1);
-        Ingrediente ing37 = new Ingrediente(37,"harina", "flour", 5);
-        Ingrediente ing38 = new Ingrediente(38,"helado", "icecream", 4);
-        Ingrediente ing39 = new Ingrediente(39,"pollo", "chiken",3);
-        Ingrediente ing40 = new Ingrediente(40,"salchicha", "sausage", 3);
-        Ingrediente ing41 = new Ingrediente(41,"bistec", "steak", 3);
-        Ingrediente ing42 = new Ingrediente(42,"pescado", "fish", 3);
-        Ingrediente ing43 = new Ingrediente(43,"salami", "salami", 3);
-        Ingrediente ing44 = new Ingrediente(44,"ajo", "garlic", 2);
-        Ingrediente ing45 = new Ingrediente(45,"cebollin", "onionin", 2);
-        Ingrediente ing46 = new Ingrediente(46,"cebolla", "onion", 2);
-        Ingrediente ing47 = new Ingrediente(47,"brócoli", "broccoli", 2);
-
-
 
 
         ArrayList<Ingrediente> listaDeVegetales = new ArrayList<Ingrediente>();
