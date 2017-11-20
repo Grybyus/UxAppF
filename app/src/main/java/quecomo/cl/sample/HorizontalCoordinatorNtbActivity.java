@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.PagerAdapter;
@@ -28,6 +29,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -205,6 +207,16 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
         listas.add(objetoListaDeCarnes);
         listas.add(objetoListaDeLacteos);
         initUI();
+
+
+        IngredienteArrayAdapter adapter = new IngredienteArrayAdapter(this, listaDeLacteos);
+        ListView listView = (ListView) findViewById(R.id.lvIngredientes);
+        listView.setAdapter(adapter);
+
+
+        CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsToolbar);
+        collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(android.R.color.transparent));
+
         Button botonFrutas = (Button) findViewById(R.id.botonFrutas);
         botonFrutas.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)

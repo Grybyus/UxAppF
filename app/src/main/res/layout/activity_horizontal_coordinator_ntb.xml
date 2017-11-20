@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
-        android:background="#cddc39"
+        android:background="@color/green"
 
         android:theme="@style/AppTheme.AppBarOverlay">
 
@@ -26,21 +26,25 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:title="@string/app_name"
             app:expandedTitleTextAppearance="@null"
-            app:contentScrim="#cddc39">
+            app:contentScrim="@color/green">
 
-
-            <TextView
-                android:id="@+id/backdrop"
-                android:text="MAYO"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:fitsSystemWindows="true"
+            <ListView
                 android:background="@color/green"
-                android:src="@drawable/ic_eighth"
-                android:tint="#000000"
-                android:padding="50dp"
-                android:textColor="@color/black"
-                app:layout_collapseMode="pin"/>
+                android:id="@+id/lvIngredientes"
+                android:layout_marginTop="17dp"
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:transcriptMode="alwaysScroll"
+                android:stackFromBottom="true"
+                android:fastScrollEnabled="true"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true"
+                android:fastScrollAlwaysVisible="true"
+                app:layout_collapseMode="pin">
+
+            </ListView>
+
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
