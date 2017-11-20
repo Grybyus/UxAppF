@@ -83,25 +83,28 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
     public static final Ingrediente ing45 = new Ingrediente(45,"Cebollin", "onionin", 2);
     public static final Ingrediente ing46 = new Ingrediente(46,"Cebolla", "onion", 2);
     public static final Ingrediente ing47 = new Ingrediente(47,"Brócoli", "broccoli", 2);
-    public static final Ingrediente ing48 = new Ingrediente(48,"Quinoa", "broccoli", Ingrediente.VERDURA);
-    public static final Ingrediente ing49 = new Ingrediente(49,"Dextrosa", "sugar", Ingrediente.OTRO);
-    public static final Ingrediente ing50 = new Ingrediente(50,"Sal", "broccoli", Ingrediente.OTRO);
-    public static final Ingrediente ing51 = new Ingrediente(51,"Manjar", "broccoli", Ingrediente.LACTEO);
-    public static final Ingrediente ing52 = new Ingrediente(52,"Carne molida", "broccoli", Ingrediente.CARNE);
-    public static final Ingrediente ing53 = new Ingrediente(53,"Salsa de tomate", "broccoli", Ingrediente.OTRO);
-    public static final Ingrediente ing54 = new Ingrediente(54,"Ramen", "broccoli", Ingrediente.OTRO);
-    public static final Ingrediente ing55 = new Ingrediente(55,"Zapallo italiano", "broccoli", Ingrediente.VERDURA);
+    public static final Ingrediente ing48 = new Ingrediente(48,"Quinoa", "quinoa", Ingrediente.VERDURA);
+    public static final Ingrediente ing49 = new Ingrediente(49,"Dextrosa", "dextrosa", Ingrediente.OTRO);
+    public static final Ingrediente ing50 = new Ingrediente(50,"Sal", "sal", Ingrediente.OTRO);
+    public static final Ingrediente ing51 = new Ingrediente(51,"Manjar", "manjar", Ingrediente.LACTEO);
+    public static final Ingrediente ing52 = new Ingrediente(52,"Carne molida", "carnemolida", Ingrediente.CARNE);
+    public static final Ingrediente ing53 = new Ingrediente(53,"Salsa de tomate", "tomate", Ingrediente.OTRO);
+    public static final Ingrediente ing54 = new Ingrediente(54,"Ramen", "ramen", Ingrediente.OTRO);
+    public static final Ingrediente ing55 = new Ingrediente(55,"Zapallo italiano", "zapallito", Ingrediente.VERDURA);
     public static final Ingrediente ing56 = new Ingrediente(56,"Tallarines", "broccoli", Ingrediente.OTRO);
-    public static final Ingrediente ing57 = new Ingrediente(57,"Manteca", "broccoli", Ingrediente.OTRO);
-    public static final Ingrediente ing58 = new Ingrediente(58,"Arvejas", "broccoli", Ingrediente.OTRO);
-    public static final Ingrediente ing59 = new Ingrediente(59,"Pimentón", "broccoli", Ingrediente.OTRO);
-    public static final Ingrediente ing60 = new Ingrediente(60,"Queso rallado", "broccoli", Ingrediente.OTRO);
-    public static final Ingrediente ing61 = new Ingrediente(61,"Primavera", "broccoli", Ingrediente.OTRO);
-    public static final Ingrediente ing62 = new Ingrediente(62,"Agua con gas", "broccoli", Ingrediente.OTRO);
-    public static final Ingrediente ing63 = new Ingrediente(63,"Pasta", "broccoli", Ingrediente.OTRO);
+    public static final Ingrediente ing57 = new Ingrediente(57,"Manteca", "manteca", Ingrediente.OTRO);
+    public static final Ingrediente ing58 = new Ingrediente(58,"Arvejas", "arvejas", Ingrediente.OTRO);
+    public static final Ingrediente ing59 = new Ingrediente(59,"Pimentón", "pimiento", Ingrediente.OTRO);
+    public static final Ingrediente ing60 = new Ingrediente(60,"Queso rallado", "quesorallado", Ingrediente.OTRO);
+    public static final Ingrediente ing61 = new Ingrediente(61,"Primavera", "primavera", Ingrediente.OTRO);
+    public static final Ingrediente ing62 = new Ingrediente(62,"Agua con gas", "aguagas", Ingrediente.OTRO);
+    public static final Ingrediente ing63 = new Ingrediente(63,"Pasta", "pasta", Ingrediente.OTRO);
     public static final Ingrediente ing64 = new Ingrediente(64,"Polvo de hornear", "broccoli", Ingrediente.OTRO);
-    public static final Ingrediente ing65 = new Ingrediente(65,"Agua", "broccoli", Ingrediente.OTRO);
-    public static final Ingrediente ing66 = new Ingrediente(66,"Jamón", "broccoli", Ingrediente.OTRO);
+    public static final Ingrediente ing65 = new Ingrediente(65,"Agua", "agua", Ingrediente.OTRO);
+    public static final Ingrediente ing66 = new Ingrediente(66,"Jamón", "jamon", Ingrediente.OTRO);
+    public static final int TODOS = 0;
+    public static final int PORINGREDIENTE = 1;
+    public static final int PORNOMBRE = 2;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -110,10 +113,26 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
 
         botonBuscar = (Button) findViewById(R.id.botonBuscarRecetas);
 
+        final ArrayList<Ingrediente> canastaFalsa = new ArrayList<>();
+        canastaFalsa.add(ing1);
+
         botonBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HorizontalCoordinatorNtbActivity.this, ListaRecetaActivity.class);
+                Bundle extras = new Bundle();
+
+                if(canastaFalsa.size()<1){
+                    extras.putInt("tipo", HorizontalCoordinatorNtbActivity.TODOS);
+                }else{
+                    extras.putInt("tipo", HorizontalCoordinatorNtbActivity.PORINGREDIENTE);
+                    ArrayList<Integer> ids = new ArrayList<>();
+                    for(Ingrediente ingred:canastaFalsa){
+                        ids.add(ingred.getId());
+                    }
+                    extras.putIntegerArrayList("ids",ids);
+                }
+                intent.putExtras(extras);
                 startActivity(intent);
             }
         });

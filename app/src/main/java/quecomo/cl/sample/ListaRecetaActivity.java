@@ -36,7 +36,7 @@ public class ListaRecetaActivity extends AppCompatActivity {
         ArrayList<Receta> recetaArrayList = new ArrayList<Receta>();
 
         ArrayList<Ingrediente> ingredientes1 = new ArrayList<>();
-        ingredientes1.add(HorizontalCoordinatorNtbActivity.ing1);
+        ingredientes1.add(HorizontalCoordinatorNtbActivity.ing6);
         ingredientes1.add(HorizontalCoordinatorNtbActivity.ing35);
         ingredientes1.add(HorizontalCoordinatorNtbActivity.ing50);
         ingredientes1.add(HorizontalCoordinatorNtbActivity.ing27);
@@ -187,42 +187,73 @@ public class ListaRecetaActivity extends AppCompatActivity {
         recetaArrayList.add(receta19);
         recetaArrayList.add(receta20);
 
-        for(Receta r: recetaArrayList){
-            String[] palabras = r.getNombre().split("\\s+");
-            for(String p: palabras){
-                if(indice.get(p.toLowerCase()) == null){
-                    indice.put(p.toLowerCase(),new ArrayList<Receta>());
-                }
-                indice.get(p.toLowerCase()).add(r);
-            }
-        }
+        Intent intentLista = getIntent();
+        Bundle extras = intentLista.getExtras();
+        int tipoBusqueda = extras.getInt("tipo");
+        RecetaArrayAdapter adapter = new RecetaArrayAdapter(this, recetaArrayList);
 
-        String consulta = "con";
-        String[] aconsulta = consulta.toLowerCase().split("\\s+");
-        ArrayList<Receta> consultaResult = new ArrayList<Receta>();
+        if(tipoBusqueda>HorizontalCoordinatorNtbActivity.TODOS) {
 
-        Log.d("UXAPP","keys ="+Arrays.toString(indice.keySet().toArray()));
+            if(tipoBusqueda==HorizontalCoordinatorNtbActivity.PORINGREDIENTE){
+                ArrayList<Receta> consultaResult = new ArrayList<Receta>();
+                ArrayList<Integer> idsingred = extras.getIntegerArrayList("ids");
 
-        final HashMap<Receta,Integer> puntaje = new HashMap<>();
-
-        for(String key:indice.keySet()){
-            for(String c:aconsulta){
-                if(key.contains(c)){
-                    for(Receta re:indice.get(key)){
-                        if(!consultaResult.contains(re)){
-                            consultaResult.add(re);
-                            puntaje.put(re,1);
-                        }else{
-                            puntaje.put(re, puntaje.get(re)+1);
+                for(Receta r : recetaArrayList){
+                    ArrayList<Integer> recetaIds = r.getIngredientesIDs();
+                    for(Integer id : idsingred){
+                        if(recetaIds.contains(id)){
+                            if(!consultaResult.contains(r)){
+                                consultaResult.add(r);
+                            }
                         }
                     }
                 }
+
+                adapter = new RecetaArrayAdapter(this, consultaResult);
+
+            }
+
+            if(tipoBusqueda==HorizontalCoordinatorNtbActivity.PORNOMBRE){
+                for (Receta r : recetaArrayList) {
+                    String[] palabras = r.getNombre().split("\\s+");
+                    for (String p : palabras) {
+                        if (indice.get(p.toLowerCase()) == null) {
+                            indice.put(p.toLowerCase(), new ArrayList<Receta>());
+                        }
+                        indice.get(p.toLowerCase()).add(r);
+                    }
+                }
+
+                String consulta = extras.getString("consulta");
+                String[] aconsulta = consulta.toLowerCase().split("\\s+");
+                ArrayList<Receta> consultaResult = new ArrayList<Receta>();
+
+                Log.d("UXAPP", "keys =" + Arrays.toString(indice.keySet().toArray()));
+
+                final HashMap<Receta, Integer> puntaje = new HashMap<>();
+
+                for (String key : indice.keySet()) {
+                    for (String c : aconsulta) {
+                        if (key.contains(c)) {
+                            for (Receta re : indice.get(key)) {
+                                if (!consultaResult.contains(re)) {
+                                    consultaResult.add(re);
+                                    puntaje.put(re, 1);
+                                } else {
+                                    puntaje.put(re, puntaje.get(re) + 1);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                Collections.sort(consultaResult, new RecetaSort(puntaje));
+
+                adapter = new RecetaArrayAdapter(this, consultaResult);
             }
         }
 
-        Collections.sort(consultaResult,new RecetaSort(puntaje));
 
-        RecetaArrayAdapter adapter = new RecetaArrayAdapter(this, consultaResult);
         ListView listView = (ListView) findViewById(R.id.lvRecetas);
         listView.setAdapter(adapter);
 

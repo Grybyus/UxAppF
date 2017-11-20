@@ -26,6 +26,17 @@ public class Receta
         return ing;
     }
 
+    public ArrayList<Integer> getIngredientesIDs() {
+
+        ArrayList<Integer> ids = new ArrayList<>();
+
+        for(Ingrediente ingrediente:ingredientes.getListaDeIngredientes()){
+            ids.add(ingrediente.getId());
+        }
+        return ids;
+    }
+
+
     public Receta(int id, String nombre, String descripcion, String nombreImagen, ListaIngredientes ingredientes, ArrayList<String> pasos)
     {
         this.id = id;
