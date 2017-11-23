@@ -9,15 +9,41 @@
     android:background="@color/light_blue"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
-
-
-    <android.support.v4.view.ViewPager
-        android:fitsSystemWindows="true"
-        android:id="@+id/viewpager"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:layout_marginBottom="48dp"/>
+        android:orientation="vertical"
+        android:layout_marginTop="32dp"
+        >
+
+        <ListView
+            android:background="@color/green"
+            android:id="@+id/lvIngredientes"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:transcriptMode="alwaysScroll"
+            android:fastScrollEnabled="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:fastScrollAlwaysVisible="true"
+            app:layout_collapseMode="pin"
+            android:visibility="gone"
+            >
+
+        </ListView>
+
+        <android.support.v4.view.ViewPager
+            android:fitsSystemWindows="true"
+            android:id="@+id/viewpager"
+            android:layout_weight="9"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_marginBottom="48dp"
+            android:layout_marginTop="-24dp"/>
+
+    </LinearLayout>
 
 
     <android.support.design.widget.TabLayout
@@ -43,46 +69,18 @@
 
         android:theme="@style/AppTheme.AppBarOverlay">
 
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/collapsToolbar"
+
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="?attr/actionBarSize"
             android:fitsSystemWindows="true"
-            android:paddingTop="22dp"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            android:background="@color/green"
+            app:layout_collapseMode="pin"
             app:title="@string/app_name"
-            app:expandedTitleTextAppearance="@null"
-            app:contentScrim="@color/green">
+            app:popupTheme="@style/AppTheme.AppBarOverlay"/>
 
-            <ListView
-                android:background="@color/green"
-                android:id="@+id/lvIngredientes"
-                android:layout_marginTop="17dp"
-                android:layout_width="200dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:transcriptMode="alwaysScroll"
-                android:stackFromBottom="true"
-                android:fastScrollEnabled="true"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentTop="true"
-                android:fastScrollAlwaysVisible="true"
-                app:layout_collapseMode="pin">
-
-            </ListView>
-
-
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:fitsSystemWindows="true"
-                android:background="@color/green"
-                app:layout_collapseMode="pin"
-                app:title="@string/app_name"
-                app:popupTheme="@style/AppTheme.AppBarOverlay"/>
-
-        </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
 

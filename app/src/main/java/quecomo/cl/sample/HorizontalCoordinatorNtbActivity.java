@@ -151,6 +151,8 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
 
         initIngredientes();
         initUI();
+        canasta.clear();
+
     }
 
     private void initIngredientes(){
@@ -221,6 +223,13 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
         listaDeTodosLosIngredientes.add(ing64);
         listaDeTodosLosIngredientes.add(ing65);
 
+        listaDeVegetales.clear();
+        listaDeLacteos.clear();
+        listaDeFrutas.clear();
+        listaDeCarnes.clear();
+        listaDeOtros.clear();
+
+
         for(Ingrediente ing: listaDeTodosLosIngredientes){
             switch (ing.getTipo()){
                 case Ingrediente.CARNE:
@@ -284,9 +293,17 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.lvIngredientes);
         listView.setAdapter(adapter);
 
-        CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsToolbar);
-        collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(android.R.color.transparent));
+    }
 
+    public void setVisibilidadCanasta(boolean visible){
+        try{
+            if(visible){
+                listView.setVisibility(ListView.VISIBLE);
+            }else{
+                listView.setVisibility(ListView.GONE);
+            }
+        }catch (Exception e){
+        }
     }
 
     @Override

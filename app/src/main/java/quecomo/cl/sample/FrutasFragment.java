@@ -19,14 +19,16 @@ public class FrutasFragment extends Fragment {
     private GridView gridView;
     ArrayList<Drawable> allDrawableImages = new ArrayList<>();
 
-
+    private HorizontalCoordinatorNtbActivity actividad;
     private TypedArray allImages;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_frutas, null);
         getAllWidgets(rootView);
+        allDrawableImages.clear();
         setAdapter();
         return rootView;
     }
@@ -39,10 +41,13 @@ public class FrutasFragment extends Fragment {
             Ingrediente ingredienteBuscado = HorizontalCoordinatorNtbActivity.listaDeFrutas.get(position);
             if(!HorizontalCoordinatorNtbActivity.canasta.contains(ingredienteBuscado)){
                 HorizontalCoordinatorNtbActivity.canasta.add(ingredienteBuscado);
-                System.out.println(HorizontalCoordinatorNtbActivity.canasta.size());
+                ((HorizontalCoordinatorNtbActivity)getActivity()).setVisibilidadCanasta(true);
                 HorizontalCoordinatorNtbActivity.listView.invalidateViews();
             }else{
                 HorizontalCoordinatorNtbActivity.canasta.remove(ingredienteBuscado);
+                if(HorizontalCoordinatorNtbActivity.canasta.isEmpty()){
+                    ((HorizontalCoordinatorNtbActivity)getActivity()).setVisibilidadCanasta(false);
+                }
                 HorizontalCoordinatorNtbActivity.listView.invalidateViews();
             }
 
@@ -50,7 +55,6 @@ public class FrutasFragment extends Fragment {
 
             }
         });
-        allImages = getResources().obtainTypedArray(R.array.all_images_fruta);
     }
     private void setAdapter()
     {

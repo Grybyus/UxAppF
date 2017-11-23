@@ -28,6 +28,7 @@ public class OtrosFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_frutas, null);
         getAllWidgets(rootView);
+        allDrawableImages.clear();
         setAdapter();
         return rootView;
     }
@@ -40,14 +41,15 @@ public class OtrosFragment extends Fragment {
                 Ingrediente ingredienteBuscado = HorizontalCoordinatorNtbActivity.listaDeOtros.get(position);
                 if(!HorizontalCoordinatorNtbActivity.canasta.contains(ingredienteBuscado)){
                     HorizontalCoordinatorNtbActivity.canasta.add(ingredienteBuscado);
-                    System.out.println(HorizontalCoordinatorNtbActivity.canasta.size());
+                    ((HorizontalCoordinatorNtbActivity)getActivity()).setVisibilidadCanasta(true);
                     HorizontalCoordinatorNtbActivity.listView.invalidateViews();
                 }else{
                     HorizontalCoordinatorNtbActivity.canasta.remove(ingredienteBuscado);
+                    if(HorizontalCoordinatorNtbActivity.canasta.isEmpty()){
+                        ((HorizontalCoordinatorNtbActivity)getActivity()).setVisibilidadCanasta(false);
+                    }
                     HorizontalCoordinatorNtbActivity.listView.invalidateViews();
                 }
-
-
             }
         });
     }

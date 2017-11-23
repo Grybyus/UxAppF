@@ -10,5 +10,7 @@
         android:horizontalSpacing="1dip"
         android:numColumns="3"
         android:stretchMode="columnWidth"
-        android:verticalSpacing="1dip" />
+        android:verticalSpacing="1dip"
+        android:paddingBottom="90dp"
+        android:clipToPadding="false"/>
 </LinearLayout>

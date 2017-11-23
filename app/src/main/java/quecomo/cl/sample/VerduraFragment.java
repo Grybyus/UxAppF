@@ -23,6 +23,7 @@ public class VerduraFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_verdura, null);
         getAllWidgets(rootView);
+        allDrawableImages.clear();
         setAdapter();
         allImages = getResources().obtainTypedArray(R.array.all_images_verduras);
         return rootView;
@@ -35,10 +36,13 @@ public class VerduraFragment extends Fragment {
                 Ingrediente ingredienteBuscado = HorizontalCoordinatorNtbActivity.listaDeVegetales.get(position);
                 if(!HorizontalCoordinatorNtbActivity.canasta.contains(ingredienteBuscado)){
                     HorizontalCoordinatorNtbActivity.canasta.add(ingredienteBuscado);
-                    System.out.println(HorizontalCoordinatorNtbActivity.canasta.size());
+                    ((HorizontalCoordinatorNtbActivity)getActivity()).setVisibilidadCanasta(true);
                     HorizontalCoordinatorNtbActivity.listView.invalidateViews();
                 }else{
                     HorizontalCoordinatorNtbActivity.canasta.remove(ingredienteBuscado);
+                    if(HorizontalCoordinatorNtbActivity.canasta.isEmpty()){
+                        ((HorizontalCoordinatorNtbActivity)getActivity()).setVisibilidadCanasta(false);
+                    }
                     HorizontalCoordinatorNtbActivity.listView.invalidateViews();
                 }
 
