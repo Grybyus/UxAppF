@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -31,14 +32,25 @@ public class IngredienteArrayAdapter extends ArrayAdapter<Ingrediente>
         imagenIngrediente.setImageDrawable(getContext().getResources().getDrawable(id));
         nombreIngrediente.setText(ingrediente.getNombre());
         //tipoIngrediente.setText(ingrediente.getTipo());
+
         LinearLayout layout = (LinearLayout)  convertView.findViewById(R.id.ingredienteview);
         layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
-
+                HorizontalCoordinatorNtbActivity.canasta.remove(ingrediente);
+                HorizontalCoordinatorNtbActivity.listView.invalidateViews();
+                if(HorizontalCoordinatorNtbActivity.canasta.isEmpty()){
+                    HorizontalCoordinatorNtbActivity.listView.setVisibility(ListView.GONE);
+                }
             }
         });
         return convertView;
+    }
+
+    public void setOnClickEscucha(View.OnClickListener escuchador){
+
+
+
     }
 }

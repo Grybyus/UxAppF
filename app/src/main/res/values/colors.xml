@@ -2,10 +2,10 @@
 <resources>
 <!-- Colores de la aplicacion -->
     <color name="black">#000000</color>
-    <color name="green">#03A9F4</color>
+    <color name="blue">#03A9F4</color>
     <color name="light_blue">#FFFFFF</color>
     <color name="white">#ffffff</color>
     <color name="yellow">#ffff80</color>
     <color name="brown">#996633</color>
-    <color name="blue">#5b5bd7</color>
+    <color name="purple">#5b5bd7</color>
 </resources>

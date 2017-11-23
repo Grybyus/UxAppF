@@ -20,7 +20,6 @@ public class FrutasFragment extends Fragment {
     ArrayList<Drawable> allDrawableImages = new ArrayList<>();
 
     private HorizontalCoordinatorNtbActivity actividad;
-    private TypedArray allImages;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

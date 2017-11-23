@@ -20,8 +20,6 @@ public class OtrosFragment extends Fragment {
     private GridView gridView;
     ArrayList<Drawable> allDrawableImages = new ArrayList<>();
 
-
-    private TypedArray allImages;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

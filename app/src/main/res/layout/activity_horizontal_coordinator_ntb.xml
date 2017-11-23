@@ -14,22 +14,19 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_marginTop="32dp"
+
         >
 
         <ListView
-            android:background="@color/green"
+            android:background="@color/blue"
             android:id="@+id/lvIngredientes"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
             android:transcriptMode="alwaysScroll"
             android:fastScrollEnabled="true"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentTop="true"
             android:fastScrollAlwaysVisible="true"
-            app:layout_collapseMode="pin"
-            android:visibility="gone"
-            >
+            android:visibility="gone">
 
         </ListView>
 
@@ -40,8 +37,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:layout_marginBottom="48dp"
-            android:layout_marginTop="-24dp"/>
+            android:layout_marginBottom="48dp"/>
+
 
     </LinearLayout>
 
@@ -52,11 +49,11 @@
         android:layout_height="wrap_content"
         app:tabGravity="fill"
         app:tabMode="fixed"
-        android:background="@color/green"
+        android:background="@color/blue"
         android:elevation="6dp"
         app:tabTextColor="#d3d3d3"
-        app:tabSelectedTextColor="#ffffff"
-        app:tabIndicatorColor="#ff00ff"
+        app:tabSelectedTextColor="#ff9311"
+        app:tabIndicatorColor="#dd8bc34a"
         android:minHeight="?attr/actionBarSize"
         android:layout_gravity="end|bottom"
         />
@@ -65,7 +62,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
-        android:background="@color/green"
+        android:background="@color/blue"
 
         android:theme="@style/AppTheme.AppBarOverlay">
 
@@ -76,7 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:fitsSystemWindows="true"
-            android:background="@color/green"
+            android:background="@color/blue"
             app:layout_collapseMode="pin"
             app:title="@string/app_name"
             app:popupTheme="@style/AppTheme.AppBarOverlay"/>
@@ -92,7 +89,7 @@
         android:layout_marginBottom="76dp"
         android:layout_marginRight="100dp"
         android:text="Buscar recetas"
-        android:background="@color/green"
+        android:background="@color/blue"
         android:textColor="@color/white" />
 
 

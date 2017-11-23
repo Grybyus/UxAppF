@@ -74,18 +74,4 @@ public class Ingrediente {
         return this.nombre;
     }
 
-
-    static public Ingrediente buscarIngredientePorID(int ID, ArrayList<Ingrediente> listaDeIngredientes)
-    {
-        for (Ingrediente ingrediente : listaDeIngredientes)
-        {
-            if(ingrediente.getId() == ID)
-            {
-                return ingrediente;
-            }
-        }
-        Log.e("ERROR DE BUSQUEDA", "El elemento no ha sido encontrado");
-        Ingrediente ingredienteVacio = new Ingrediente(-1, "","",-1, -1);
-        return ingredienteVacio;
-    }
 }

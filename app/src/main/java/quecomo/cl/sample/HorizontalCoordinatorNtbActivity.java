@@ -7,9 +7,11 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -292,7 +294,6 @@ public class HorizontalCoordinatorNtbActivity extends AppCompatActivity {
         IngredienteArrayAdapter adapter = new IngredienteArrayAdapter(this, canasta);
         listView = (ListView) findViewById(R.id.lvIngredientes);
         listView.setAdapter(adapter);
-
     }
 
     public void setVisibilidadCanasta(boolean visible){

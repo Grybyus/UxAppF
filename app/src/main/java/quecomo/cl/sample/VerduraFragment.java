@@ -16,7 +16,6 @@ import java.util.ArrayList;
 public class VerduraFragment extends Fragment {
     private GridView gridView;
     ArrayList<Drawable> allDrawableImages = new ArrayList<>();
-    private TypedArray allImages;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -25,7 +24,6 @@ public class VerduraFragment extends Fragment {
         getAllWidgets(rootView);
         allDrawableImages.clear();
         setAdapter();
-        allImages = getResources().obtainTypedArray(R.array.all_images_verduras);
         return rootView;
     }
     private void getAllWidgets(View view) {
