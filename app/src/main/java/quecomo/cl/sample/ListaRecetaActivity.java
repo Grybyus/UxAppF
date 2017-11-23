@@ -196,18 +196,22 @@ public class ListaRecetaActivity extends AppCompatActivity {
 
             if(tipoBusqueda==HorizontalCoordinatorNtbActivity.PORINGREDIENTE){
                 ArrayList<Receta> consultaResult = new ArrayList<Receta>();
-                ArrayList<Integer> idsingred = extras.getIntegerArrayList("ids");
+                HashMap<Receta, Integer> puntaje = new HashMap<>();
 
                 for(Receta r : recetaArrayList){
-                    ArrayList<Integer> recetaIds = r.getIngredientesIDs();
-                    for(Integer id : idsingred){
-                        if(recetaIds.contains(id)){
+                    for(Ingrediente ingr : r.getIngredientesObj() ){
+                        if(HorizontalCoordinatorNtbActivity.canasta.contains(ingr)){
                             if(!consultaResult.contains(r)){
                                 consultaResult.add(r);
+                                puntaje.put(r,1);
+                            }else{
+                                puntaje.put(r,puntaje.get(r)+1);
                             }
                         }
                     }
                 }
+
+                Collections.sort(consultaResult, new RecetaSort(puntaje));
 
                 adapter = new RecetaArrayAdapter(this, consultaResult);
 
@@ -230,7 +234,7 @@ public class ListaRecetaActivity extends AppCompatActivity {
 
                 Log.d("UXAPP", "keys =" + Arrays.toString(indice.keySet().toArray()));
 
-                final HashMap<Receta, Integer> puntaje = new HashMap<>();
+                HashMap<Receta, Integer> puntaje = new HashMap<>();
 
                 for (String key : indice.keySet()) {
                     for (String c : aconsulta) {

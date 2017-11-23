@@ -26,14 +26,18 @@ public class Receta
         return ing;
     }
 
-    public ArrayList<Integer> getIngredientesIDs() {
+    public ArrayList<Ingrediente> getIngredientesObj() {
+        return this.ingredientes.getListaDeIngredientes();
+    }
 
-        ArrayList<Integer> ids = new ArrayList<>();
+    public ArrayList<Integer> getIngredientesPKs() {
+
+        ArrayList<Integer> pks = new ArrayList<>();
 
         for(Ingrediente ingrediente:ingredientes.getListaDeIngredientes()){
-            ids.add(ingrediente.getId());
+            pks.add(ingrediente.getPk());
         }
-        return ids;
+        return pks;
     }
     public ArrayList<Integer> getIngredientesTipos() {
 

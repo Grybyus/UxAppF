@@ -18,14 +18,20 @@ public class Ingrediente {
     private int tipo; //1: fruta, 2: verdura, 3: carnes y pescados y marinos, 4: lacteos, 5: otros.
     private String nombre;
     private String imagen;
+    private int pk;
 
 
-    public Ingrediente(int id, String nombre, String imagen, int tipo)
+    public int getPk() {
+        return pk;
+    }
+
+    public Ingrediente(int id, String nombre, String imagen, int tipo, int pk)
     {
         this.id = id;
         this.nombre = nombre;
         this.imagen = imagen;
         this.tipo= tipo;
+        this.pk = pk;
     }
 
     public int getId()
@@ -68,42 +74,18 @@ public class Ingrediente {
         return this.nombre;
     }
 
-    static public Ingrediente buscarIngredientePorNombre(String nombre, ArrayList<Ingrediente> listaDeIngredientes)
-    {
-        for (Ingrediente ingrediente : listaDeIngredientes)
-        {
-            if(ingrediente.nombre == nombre)
-            {
-                return ingrediente;
-            }
-        }
-        Log.e("ERROR DE BUSQUEDA", "El elemento no ha sido encontrado");
-        Ingrediente ingredienteVacio = new Ingrediente(-1, "","",-1);
-        return ingredienteVacio;
-    }
 
-    static public boolean comprobarSiExisteIngredienteEnLista(int idDelIngredienteAComprobar, ArrayList<Ingrediente> canasta)
-    {
-        for (Ingrediente ingrediente : canasta)
-        {
-            if(ingrediente.id == idDelIngredienteAComprobar)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
     static public Ingrediente buscarIngredientePorID(int ID, ArrayList<Ingrediente> listaDeIngredientes)
     {
         for (Ingrediente ingrediente : listaDeIngredientes)
         {
-            if(ingrediente.id == ID)
+            if(ingrediente.getId() == ID)
             {
                 return ingrediente;
             }
         }
         Log.e("ERROR DE BUSQUEDA", "El elemento no ha sido encontrado");
-        Ingrediente ingredienteVacio = new Ingrediente(-1, "","",-1);
+        Ingrediente ingredienteVacio = new Ingrediente(-1, "","",-1, -1);
         return ingredienteVacio;
     }
 }

@@ -32,21 +32,26 @@ public class CarnesFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+position);
-                if (Ingrediente.comprobarSiExisteIngredienteEnLista(position,HorizontalCoordinatorNtbActivity.canasta) == false) {
-                    Ingrediente ingredienteBuscado = Ingrediente.buscarIngredientePorID(position, HorizontalCoordinatorNtbActivity.listaDeCarnes);
+                Ingrediente ingredienteBuscado = HorizontalCoordinatorNtbActivity.listaDeCarnes.get(position);
+                if(!HorizontalCoordinatorNtbActivity.canasta.contains(ingredienteBuscado)){
                     HorizontalCoordinatorNtbActivity.canasta.add(ingredienteBuscado);
                     System.out.println(HorizontalCoordinatorNtbActivity.canasta.size());
                     HorizontalCoordinatorNtbActivity.listView.invalidateViews();
+                }else{
+                    HorizontalCoordinatorNtbActivity.canasta.remove(ingredienteBuscado);
+                    HorizontalCoordinatorNtbActivity.listView.invalidateViews();
                 }
+
             }
         });
         allImages = getResources().obtainTypedArray(R.array.all_images_carnes);
     }
     private void setAdapter()
     {
-        for (int i = 0; i < allImages.length(); i++) {
-            allDrawableImages.add(allImages.getDrawable(i));
+        allDrawableImages.clear();
+        for(Ingrediente carne: HorizontalCoordinatorNtbActivity.listaDeCarnes){
+            int resId = this.getResources().getIdentifier(carne.getImagen(),"drawable",this.getContext().getPackageName());
+            allDrawableImages.add(getResources().getDrawable(resId));
         }
         GridViewAdapter gridViewAdapter = new GridViewAdapter(HorizontalCoordinatorNtbActivity.getInstance(), allDrawableImages);
         gridView.setAdapter(gridViewAdapter);
